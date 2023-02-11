@@ -9,7 +9,6 @@ export default function HomePage() {
         <Navigation/>
         <About/>
         <Callout/>
-        <VerifyFarmer/>
       </div>
   );
 }
