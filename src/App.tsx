@@ -3,8 +3,11 @@ import SignUpPage from './components/SignUpFarmer'
 import SearchBar from './components/Navigation'
 import ProductPage from './pages/ProductPage'
 import VerifyFarmer from './pages/VerifyFarmer'
+import ViewProductPage from "./pages/ViewProductPage";
+import CartPage from "./pages/CartPage";
+import LeaveReviewPage from "./pages/LeaveReviewPage";
 
-import {HOME, LOGIN, SIGNUP, SEARCH, PRODUCTPAGE, VERIFYFARMER} from './constants/routes'
+import {HOME, LOGIN, SIGNUP, SEARCH, PRODUCTPAGE, VERIFYFARMER, VIEWPRODUCTPAGE, CARTPAGE, LEAVEREVIEWPAGE} from './constants/routes'
 import {
   BrowserRouter as Router,
   Routes,
@@ -26,6 +29,10 @@ function App() {
             <Route path={SEARCH} element={<SignUpPage />} />
             <Route path={PRODUCTPAGE} element={<ProductPage />} />
             <Route path={VERIFYFARMER} element={<VerifyFarmer />} />
+            <Route path={VIEWPRODUCTPAGE} element={<ViewProductPage />} />
+            <Route path={CARTPAGE} element={<CartPage />} />
+             <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
+
         </Routes>
         </>
       </div>
