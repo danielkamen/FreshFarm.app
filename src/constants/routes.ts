@@ -9,8 +9,7 @@ export const PRODUCTPAGE = '/produce'
 //export const VERIFYFARMER = '/verifyfarmer'
 
 // an indiviual product. IS THIS DIFFERENT PER ITEM AND IF SO HOW
-export const VIEWPRODUCTPAGE = '/product'
-
+export const VIEWPRODUCTPAGE = '/produce/:produce_id'
 
 export const CARTPAGE ='/cart'
 export const LEAVEREVIEWPAGE = '/review'
