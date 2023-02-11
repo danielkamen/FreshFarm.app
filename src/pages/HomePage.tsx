@@ -1,6 +1,7 @@
 import Navigation from "../components/Navigation";
 import About from "../components/About";
 import Callout from "../components/Callout";
+import VerifyFarmer from "../components/VerifyFarmer";
 
 export default function HomePage() {
   return (
@@ -8,6 +9,7 @@ export default function HomePage() {
         <Navigation/>
         <About/>
         <Callout/>
+        <VerifyFarmer/>
       </div>
   );
 }
