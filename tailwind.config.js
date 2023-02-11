@@ -5,7 +5,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx,html}", "./public/index.html"],
   theme: {
     fontFamily: {
-      sans: ['var(--font-rubik)', ...fontFamily.sans],
+      inter: ['Inter', ...fontFamily.sans],
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
