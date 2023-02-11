@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import logo from "./farmfreshlogo.gif";
+import logo from "./farmfreshnavlogo.gif";
 import { Popover, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import {
