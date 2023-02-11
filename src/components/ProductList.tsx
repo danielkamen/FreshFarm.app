@@ -39,7 +39,7 @@ const applications = [
   },
 ]
 
-export default function Example() {
+export default function ProductList() {
   return (
       <div className="overflow-hidden bg-white shadow sm:rounded-md">
         <ul role="list" className="divide-y divide-gray-200">

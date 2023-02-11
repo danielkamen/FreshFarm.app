@@ -8,7 +8,6 @@ export default function HomePage() {
         <Navigation/>
         <About/>
         <Callout />
-    
       </div>
   );
 }

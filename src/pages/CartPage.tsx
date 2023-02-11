@@ -192,7 +192,7 @@ const footerNavigation = {
 //   return classes.filter(Boolean).join(' ')
 // }
 
-export default function Example() {
+export default function CartPage() {
   const [open, setOpen] = useState(false)
 
   return (

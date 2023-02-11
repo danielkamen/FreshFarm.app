@@ -11,7 +11,7 @@ import MeetFarmersPage from "./pages/MeetFarmersPage";
 import FarmerInfoPage from "./pages/FarmerInfoPage";
 import LoginPage from './pages/LoginPage';
 // VERIFYFARMER,
-import {HOME, LOGIN, SIGNUP, PRODUCTPAGE, VIEWPRODUCTPAGE, CARTPAGE, LEAVEREVIEWPAGE, EDITPRODUCTPAGE, MEETFARMERSPAGE} from './constants/routes'
+import { HOME, LOGIN, SIGNUP, PRODUCTPAGE, VIEWPRODUCTPAGE, CARTPAGE, LEAVEREVIEWPAGE, EDITPRODUCTPAGE, MEETFARMERSPAGE } from './constants/routes'
 import {
   BrowserRouter as Router,
   Routes,
@@ -21,27 +21,19 @@ import {
 function App() {
   return (
     <Router>
-      <div className="App">
-        <>
-          <Routes>
-            <Route path={HOME} element={<HomePage/>}/>
-            <Route path={LOGIN} element={<LoginPage/>} />
-            <Route path={SIGNUP} element={<SignupPage/>} />
-            <Route path={PRODUCTPAGE} element={<ProductPage />} />
-            <Route path={EDITPRODUCTPAGE} element={<EditProductPage />} />
-            <Route path={VIEWPRODUCTPAGE} element={<ViewProductPage />} />
-            <Route path={CARTPAGE} element={<CartPage />} />
-            <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage/>}/>
-            <Route path={MEETFARMERSPAGE} element={<MeetFarmersPage/>}/>
-
-        </Routes>
-
-        </>
-
-      </div>
-        
+      <Routes>
+        <Route path={HOME} element={<HomePage />} />
+        <Route path={LOGIN} element={<LoginPage />} />
+        <Route path={SIGNUP} element={<SignupPage />} />
+        <Route path={PRODUCTPAGE} element={<ProductPage />} />
+        <Route path={EDITPRODUCTPAGE} element={<EditProductPage />} />
+        <Route path={VIEWPRODUCTPAGE} element={<ViewProductPage />} />
+        <Route path={CARTPAGE} element={<CartPage />} />
+        <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
+        <Route path={MEETFARMERSPAGE} element={<MeetFarmersPage />} />
+      </Routes>
     </Router>
-      
+
   );
 }
 

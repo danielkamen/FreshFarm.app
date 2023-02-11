@@ -1,6 +1,6 @@
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
-export default function Example() {
+export default function FarmerInfoPage() {
   return (
       <div className="bg-gray-100">
         <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">

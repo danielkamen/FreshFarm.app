@@ -27,7 +27,7 @@ const dueDates = [
 //   return classes.filter(Boolean).join(' ')
 // }
 
-export default function Example() {
+export default function LeaveReviewPage() {
   const [assigned, setAssigned] = useState(assignees[0])
   const [labelled, setLabelled] = useState(labels[0])
   const [dated, setDated] = useState(dueDates[0])
