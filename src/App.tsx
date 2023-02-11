@@ -35,8 +35,7 @@ function App() {
              <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
 
         </Routes>
-          <MeetFarmersPage/>
-          <FarmerInfoPage/>
+
         </>
 
       </div>
