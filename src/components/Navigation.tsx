@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import logo from "./farmfreshlogo.gif";
 import { Popover, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import {
@@ -66,7 +67,7 @@ export default function Navigation() {
                 <div className="transform transition duration-300">
                   <img
                     className="h-8 w-auto sm:h-10"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src={logo}
                     alt=""
                   />
                 </div>
@@ -232,7 +233,7 @@ export default function Navigation() {
                           <div className="bg-gray-50 px-4 py-8 sm:py-12 sm:px-6 lg:px-8 xl:pl-12">
                             <div className="mt-6 text-sm font-medium">
                               <a
-                                href="src/components/Navigation#"
+                                href=""
                                 className="text-indigo-600 hover:text-indigo-500">
                                 View all posts
                                 <span aria-hidden="true"> &rarr;</span>
@@ -298,7 +299,7 @@ export default function Navigation() {
                 <div>
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src={logo}
                     alt="Your Company"
                   />
                 </div>
