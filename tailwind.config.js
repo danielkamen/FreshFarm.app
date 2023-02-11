@@ -22,9 +22,19 @@ module.exports = {
       "8xl": ["6rem", { lineHeight: "1" }],
       "9xl": ["8rem", { lineHeight: "1" }],
     },
+    extend: {
+      colors: {
+        primary: "#00D298",
+        "primary-accent": "#1DC37A",
+        secondary: "#FF6123",
+        "secondary-accent": "#FF4A00",
+        tertiary: "#FFB800",
+        "tertiary-accent": "#FFA500",
+      },
+    },
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("@tailwindcss/aspect-ratio"),
   ],

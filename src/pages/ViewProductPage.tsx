@@ -1,12 +1,11 @@
 import ProductList from "../components/ProductList";
 import SingleProduct from "../components/SingleProduct";
 
-
-export default function Example() {
+export default function ViewProductPage() {
   return (
-      <div>
-        <SingleProduct/>
-        <ProductList/>
-      </div>
+    <div>
+      <SingleProduct />
+      <ProductList />
+    </div>
   );
 }
