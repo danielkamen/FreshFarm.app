@@ -1,13 +1,36 @@
-# cra-template-tailwindcss-typescript
+## Getting started
 
-A streamlined [Tailwind CSS v3.1](https://tailwindcss.com) template for [Create React App](https://github.com/facebook/create-react-app) in [TypeScript](https://www.typescriptlang.org/).
+## Requirements
 
-> This template installs and sets up [Tailwind CSS](https://tailwindcss.com) with TypeScript support.
+Make sure you have `nodejs` and `npm` installed ([here](https://nodejs.org/en/download/))
 
-## Usage
+## Start the web app
 
-```bash
-npx create-react-app --template tailwindcss-typescript
+### Install dependencies
+
+```
+npm install
+```
+
+### Run in development environment
+
+```
+npm start
+```
+
+> Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> The page will reload if you make edits.
+
+### Build for production
+
+```
+npm build
+```
+
+### Run tests
+
+```
+npm test
 ```
 
 ## Credits
