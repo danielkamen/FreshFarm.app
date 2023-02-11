@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
 import { collection, addDoc } from "firebase/firestore"; 
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 import { PRODUCTPAGE } from '../constants/routes'
-import { useForm } from "react-hook-form";
 
 export default function Example() {
+  const [error, setError] = useState({email: '', password: ''});
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isBuyer, setIsBuyer] = useState<boolean>(true);
+  let navigate = useNavigate(); 
+  
   return (
     <>
       {/*
@@ -55,10 +56,16 @@ export default function Example() {
                             updated_at: new Date(),
                           });
                       }
+                      navigate(PRODUCTPAGE)
                     } catch (e: any) {
-                    if (e.message === 'USER_NOT_FOUND') {
-
-                    }
+                      const err = (e as Error).message;
+                      if (err === 'Firebase: Error (auth/email-already-in-use).') {
+                        setError({email: 'Email already exists.', password: ''})
+                      } else if (err === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
+                        setError({email: '', password: 'Password should be at least 6 characters'})
+                      } else {
+                        setError({email: 'Invalid email', password: ''});
+                      }
                       console.error(e);
                     }
                   }}
@@ -78,6 +85,9 @@ export default function Example() {
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                       />
+                      {error.email !== '' && (
+                          <div className="mb-3 text-normal text-red-500 ">{error.email}</div>
+                      )}
                     </div>
                   </div>
 
@@ -96,6 +106,9 @@ export default function Example() {
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                       />
+                      {error.password !== '' && (
+                          <div className="mb-3 text-normal text-red-500 ">{error.password}</div>
+                      )}
                     </div>
                   </div>
 
@@ -119,7 +132,6 @@ export default function Example() {
                       form='signup-form'
                       className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       >
-                      <Link to={PRODUCTPAGE} className="text-indigo-600 hover:text-indigo-500"/>
                       Sign up
                     </button>
                   </div>

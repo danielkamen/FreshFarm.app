@@ -1,13 +1,38 @@
+/*
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+*/
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-
 import { auth } from '../firebase';
+import { PRODUCTPAGE } from '../constants/routes'
 
-export default function LoginPage() {
+export default function Example() {
+  const [error, setError] = useState({email: '', password: ''});
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  let navigate = useNavigate(); 
   return (
     <>
+      {/*
+        This example requires updating your template:
+
+        ```
+        <html class="h-full bg-white">
+        <body class="h-full">
+        ```
+      */}
       <div className="flex min-h-full">
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
@@ -31,10 +56,16 @@ export default function LoginPage() {
                 onSubmit={async(event) => {
                   event.preventDefault();
                   try {
-                    const userCredential = await signInWithEmailAndPassword(auth, email, password)
-                    const user = userCredential.user;
-                    console.log(user);
-                  } catch (e) {
+                    await signInWithEmailAndPassword(auth, email, password)
+                    navigate(PRODUCTPAGE)
+                  } catch (e: any) {
+                    const err = (e as Error).message;
+                    console.log(err);
+                    if (err === 'Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).') {
+                      setError({email: '', password: 'Too many login attempts. Please try again later.'})
+                    } else {
+                      setError({email: '', password: 'Email or password is incorrect.'});
+                    }
                     console.error(e);
                   }
                 }}>
@@ -46,13 +77,15 @@ export default function LoginPage() {
                       <input
                         id="email-login"
                         name="email"
-                        type="email"
                         autoComplete="email"
                         required
                         className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                       />
+                      {error.email !== '' && (
+                          <div className="mb-3 text-normal text-red-500 ">{error.email}</div>
+                      )}
                     </div>
                   </div>
 
@@ -71,6 +104,9 @@ export default function LoginPage() {
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                       />
+                      {error.password !== '' && (
+                          <div className="mb-3 text-normal text-red-500 ">{error.password}</div>
+                      )}
                     </div>
                   </div>
 
