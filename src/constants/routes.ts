@@ -1,6 +1,6 @@
 export const HOME = '/'
 export const LOGIN = '/login'
-export const SIGNUPFARMER = '/farmersignup'
+export const SIGNUP = '/signup'
 export const SEARCH = '/search'
 export const PRODUCTPAGE = '/produce'
 //export const VERIFYFARMER = '/verifyfarmer'

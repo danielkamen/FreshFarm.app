@@ -8,7 +8,7 @@ import CartPage from "./pages/CartPage";
 import LeaveReviewPage from "./pages/LeaveReviewPage";
 import EditProductPage from "./pages/EditProductPage";
 // VERIFYFARMER,
-import {HOME, LOGIN, SIGNUPFARMER, SEARCH, PRODUCTPAGE, VIEWPRODUCTPAGE, CARTPAGE, LEAVEREVIEWPAGE, EDITPRODUCTPAGE} from './constants/routes'
+import {HOME, LOGIN, SIGNUP, SEARCH, PRODUCTPAGE, VIEWPRODUCTPAGE, CARTPAGE, LEAVEREVIEWPAGE, EDITPRODUCTPAGE} from './constants/routes'
 import {
   BrowserRouter as Router,
   Routes,
@@ -26,7 +26,7 @@ function App() {
           <Routes>
             <Route path={HOME} element={<HomePage/>}/>
             <Route path={LOGIN} element={<></>} />
-            <Route path={SIGNUPFARMER} element={<SignUpPage/>} />
+            <Route path={SIGNUP} element={<SignUpPage/>} />
             <Route path={SEARCH} element={<SearchBar />} />
             <Route path={PRODUCTPAGE} element={<ProductPage />} />
             <Route path={EDITPRODUCTPAGE} element={<EditProductPage />} />

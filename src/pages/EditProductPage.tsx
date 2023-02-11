@@ -13,11 +13,12 @@
   }
   ```
 */
+import {Link} from 'react-router-dom'
 import { useState } from 'react'
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
-
+import { CARTPAGE} from '../constants/routes'
 const product = {
   name: 'THIS PAGE FOR FARMERS ONLY TO EDIT PRODUCT should have more features',
   price: '$140',
@@ -186,14 +187,16 @@ export default function Example() {
                   </RadioGroup>
                 </div>
 
-                <div className="sm:flex-col1 mt-10 flex">
+              <div className="sm:flex-col1 mt-10 flex">
+                <Link to ={CARTPAGE}>
                   <button
                       type="submit"
                       className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                  >
+                >
+                  
                     Add to bag
-                  </button>
-
+                </button>
+                </Link>
                   <button
                       type="button"
                       className="ml-4 flex items-center justify-center rounded-md py-3 px-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
