@@ -383,7 +383,7 @@ export default function Navigation() {
                 </div>
                 <div className="mt-6">
                   <a
-                      href="src/components/Navigation#"
+                      href="src/components/Login#"
                       className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >
                     Sign up

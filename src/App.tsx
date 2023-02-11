@@ -1,5 +1,5 @@
 import HomePage from "./pages/HomePage";
-import SignUpPage from './components/SignUpFarmer'
+import SignupPage from './pages/SignupPage'
 import SearchBar from './components/Navigation'
 import ProductPage from './pages/ProductPage'
 //import VerifyFarmer from './pages/VerifyFarmer'
@@ -9,6 +9,7 @@ import LeaveReviewPage from "./pages/LeaveReviewPage";
 import EditProductPage from "./pages/EditProductPage";
 import MeetFarmersPage from "./pages/MeetFarmersPage";
 import FarmerInfoPage from "./pages/FarmerInfoPage";
+import LoginPage from './pages/LoginPage';
 // VERIFYFARMER,
 import {HOME, LOGIN, SIGNUPFARMER, SEARCH, PRODUCTPAGE, VIEWPRODUCTPAGE, CARTPAGE, LEAVEREVIEWPAGE, EDITPRODUCTPAGE} from './constants/routes'
 import {
@@ -24,8 +25,8 @@ function App() {
         <>
           <Routes>
             <Route path={HOME} element={<HomePage/>}/>
-            <Route path={LOGIN} element={<></>} />
-            <Route path={SIGNUPFARMER} element={<SignUpPage/>} />
+            <Route path={LOGIN} element={<LoginPage/>} />
+            <Route path={SIGNUPFARMER} element={<SignupPage/>} />
             <Route path={SEARCH} element={<SearchBar />} />
             <Route path={PRODUCTPAGE} element={<ProductPage />} />
             <Route path={EDITPRODUCTPAGE} element={<EditProductPage />} />
