@@ -3,8 +3,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { auth } from '../firebase';
 const SignUpFarmer = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   return (
     <div>
       <form>
