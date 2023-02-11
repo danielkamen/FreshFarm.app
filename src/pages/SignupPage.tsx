@@ -14,11 +14,14 @@
 */
 import React, { useState } from 'react'
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from "../firebase";
 
-import { auth } from '../firebase';
 export default function Example() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [isBuyer, setIsBuyer] = useState<boolean>(true);
   return (
     <>
       {/*
@@ -176,8 +179,22 @@ export default function Example() {
                         try {
                           const userCredential = await createUserWithEmailAndPassword(auth, email, password)
                           const user = userCredential.user;
-                          // ...
-                          console.log(user);
+
+                          if (isBuyer) {
+                            const docRef = await addDoc(collection(db, 'buyers'), {
+                                email_address: email,
+                                created_at: new Date(),
+                                updated_at: new Date(),
+                                cart: [],
+                                wishlist: [],
+                              });
+                          } else {
+                            const docRef = await addDoc(collection(db, 'sellers'), {
+                                email_address: email,
+                                created_at: new Date(),
+                                updated_at: new Date(),
+                              });
+                          }
                         } catch (e) {
                           console.error(e);
                         }
