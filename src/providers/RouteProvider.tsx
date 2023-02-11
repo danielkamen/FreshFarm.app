@@ -21,6 +21,7 @@ import {
   LEAVEREVIEWPAGE,
   EDITPRODUCTPAGE,
   MEETFARMERSPAGE,
+  VIEWFARMERPAGE,
 } from "../constants/routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useUserContext } from "../contexts/useUserContext";
@@ -44,6 +45,7 @@ export const RouteProvider = () => {
             <Route path={CARTPAGE} element={<CartPage />} />
             <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
             <Route path={MEETFARMERSPAGE} element={<MeetFarmersPage />} />
+             <Route path={VIEWFARMERPAGE} element={<FarmerInfoPage />} />
           </Routes>
         </Router>
       ) : null}
