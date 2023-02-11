@@ -2,7 +2,7 @@ import ProductList from "../components/ProductList";
 import SingleProduct from "../components/SingleProduct";
 
 
-export default function HomePage() {
+export default function Example() {
   return (
       <div>
         <SingleProduct/>

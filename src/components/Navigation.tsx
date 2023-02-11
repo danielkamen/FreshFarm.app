@@ -52,18 +52,22 @@ const features = [
 
 export default function Navigation() {
   return (
-      <Popover className="relative bg-white">
+      <Popover className="sticky top-0 bg-white">
         <div className="pointer-events-none absolute inset-0 z-30 shadow" aria-hidden="true" />
         <div className="relative z-20">
           <div className="mx-auto flex max-w-7xl items-center justify-between py-5 px-6 sm:py-4 md:justify-start md:space-x-10 lg:px-8">
             <div>
               <a href="src/components/Navigation#" className="flex">
                 <span className="sr-only">Your Company</span>
+                <div className="h-8 w-auto sm:h-10">
+                  <div className="transform transition duration-300">
                 <img
                     className="h-8 w-auto sm:h-10"
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                     alt=""
                 />
+                  </div>
+                </div>
               </a>
             </div>
             <div className="-my-2 -mr-2 md:hidden">
@@ -139,9 +143,34 @@ export default function Navigation() {
                 <a href="src/components/Navigation#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Farm Fresh
                 </a>
-                <Link to={SEARCH} className="text-base font-medium text-gray-500 hover:text-gray-900">
-                  SEARCH BAR HERE
-                </Link>
+
+                  <div
+                      className="flex items-center p-6 space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
+                    <div className="flex bg-gray-100 p-4 w-72 space-x-4 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 opacity-30"
+                           fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                      </svg>
+                      <input className="bg-gray-100 outline-none" type="text"
+                             placeholder="Article name or keyword..."/>
+                    </div>
+                    <div
+                        className="flex py-3 px-4 rounded-lg text-gray-500 font-semibold cursor-pointer">
+                      <span>All categories</span>
+
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                           viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </div>
+                    <div
+                        className="bg-indigo-600 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer">
+                      <span>Search</span>
+                    </div>
+                  </div>
+
                 <Popover>
                   {({ open }) => (
                       <>
