@@ -25,7 +25,7 @@ export default function About() {
   return (
       <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
         <img
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+            src="https://sustainability.ph/storage/articles/banners/d13ac31e5b331cfc25bcf069470ae0ec.jpg"
             alt=""
             className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
         />
@@ -77,10 +77,10 @@ export default function About() {
         </svg>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            <h2 className="text-4xl font-bold tracking-tight text-black-400 sm:text-6xl py-6">
               About Us
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            <p className="flex gap-x-4 rounded-xl bg-black/5 p-6 ring-1 ring-inset ring-white/10">
               FreshFarm connects local farmers with buyers in the area, providing access to
               affordable, sustainable, and fresh produce that might otherwise go to waste.
               By reducing food waste and supporting small-scale farmers, FreshFarm is helping to
@@ -92,14 +92,14 @@ export default function About() {
             {cards.map((card) => (
                 <div
                     key={card.name}
-                    className="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10">
+                    className="flex gap-x-4 rounded-l-2xl bg-black/5 p-6 ring-1 ring-inset ring-white/10">
                   <card.icon
                       className="h-7 w-5 flex-none text-indigo-400"
                       aria-hidden="true"
                   />
                   <div className="text-base leading-7">
-                    <h3 className="font-semibold text-white">{card.name}</h3>
-                    <p className="mt-2 text-gray-300">{card.description}</p>
+                    <h3 className="font-semibold text-black">{card.name}</h3>
+                    <p className="mt-2 text-black-300">{card.description}</p>
                   </div>
                 </div>
             ))}
