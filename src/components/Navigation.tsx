@@ -21,7 +21,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { LOGIN, SIGNUP, PRODUCTPAGE, SEARCH } from '../constants/routes'
+import { LOGIN, SIGNUP, PRODUCTPAGE } from '../constants/routes'
 
 const features = [
   {
@@ -143,7 +143,6 @@ export default function Navigation() {
                 <a href="src/components/Navigation#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Farm Fresh
                 </a>
-
                   <div
                       className="flex items-center p-6 space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
                     <div className="flex bg-gray-100 p-4 w-72 space-x-4 rounded-lg">

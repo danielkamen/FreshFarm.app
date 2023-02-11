@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v3.0+ */
 const people = [
   {
     name: 'Lindsay Walton',
