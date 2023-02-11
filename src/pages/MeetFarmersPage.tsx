@@ -2,55 +2,55 @@ import { Link } from "react-router-dom"
 
 const people = [
   {
-    name: 'Lindsay Walton',
-    role: 'Front-end Developer',
+    name: 'Pammy Potatoes',
+    role: 'Farmer',
     imageUrl:
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'https://img.freepik.com/free-photo/front-view-woman-holding-tablet_23-2149894719.jpg?w=2000',
     twitterUrl: '#',
     linkedinUrl: '#',
     to:'/farm1'
   },
   {
-    name: 'Lindsay Walton',
-    role: 'Front-end Developer',
+    name: 'Wanda Watermelon',
+    role: 'Farmer',
     imageUrl:
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'https://us.123rf.com/450wm/doucefleur/doucefleur2010/doucefleur201000057/doucefleur201000057.jpg?ver=6',
     twitterUrl: '#',
     linkedinUrl: '#',
     to:'/farm2'
   },
   {
-    name: 'Lindsay Walton',
-    role: 'Front-end Developer',
+    name: 'Chichi Cherry',
+    role: 'Farmer',
     imageUrl:
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'https://media.istockphoto.com/id/1049653176/photo/happy-thai-female-farmer-harvesting-rice-in-countryside-thailand.jpg?s=612x612&w=0&k=20&c=BD--rcVXQNb-2IE3gg-9BVm8HQ4QqfGjGB7WOFshdJw=',
     twitterUrl: '#',
     linkedinUrl: '#',
     to:'/farm3'
   },
   {
-    name: 'Lindsay Walton',
-    role: 'Front-end Developer',
+    name: 'Benjamin Banane',
+    role: 'Farmer',
     imageUrl:
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'https://media.istockphoto.com/id/1358202423/photo/senior-farmer-standing-in-soybean-field-examining-crop-at-sunset.jpg?s=612x612&w=0&k=20&c=0PBJxYicprgkaS5NZetOUwOhytmWvshc8znuRv-_Vhk=',
     twitterUrl: '#',
     linkedinUrl: '#',
     to:'/farm4'
   },
   {
-    name: 'Lindsay Walton',
-    role: 'Front-end Developer',
+    name: 'Edgar Eggplant',
+    role: 'Farmer',
     imageUrl:
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'https://media.istockphoto.com/id/1210263624/photo/senior-farmer-standing-in-soybean-field-examining-crop-at-sunset.jpg?s=612x612&w=0&k=20&c=nXb_jCp-DR0PE1_wvx_GIFXKkornIA0QRBb4thwgnXg=',
     twitterUrl: '#',
     linkedinUrl: '#',
     to:'/farm5'
   },
   {
-    name: 'Lindsay Walton',
-    role: 'Front-end Developer',
+    name: 'Stew Strawberries',
+    role: 'Farmer',
     imageUrl:
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'https://thumbs.dreamstime.com/b/cabinda-angola-jun-african-farmer-to-watering-plantation-industry-116738245.jpg',
     twitterUrl: '#',
     linkedinUrl: '#',
     to:'/farm6'

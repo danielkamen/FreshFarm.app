@@ -46,7 +46,7 @@ const callouts: Array<CalloutType> = [
 export default function Callout() {
   return (
     <div className="bg-gray-100">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-4">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-4">
         <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-2 lg:gap-x-6 lg:space-y-0">
             {callouts.map((callout) => (
