@@ -32,7 +32,7 @@ function App() {
             <Route path={EDITPRODUCTPAGE} element={<EditProductPage />} />
             <Route path={VIEWPRODUCTPAGE} element={<ViewProductPage />} />
             <Route path={CARTPAGE} element={<CartPage />} />
-             <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
+            <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
 
         </Routes>
           <MeetFarmersPage/>
