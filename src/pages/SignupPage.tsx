@@ -5,7 +5,6 @@ import { auth } from "../firebase";
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from "../firebase";
 import { PRODUCTPAGE } from '../constants/routes'
-import { useForm } from "react-hook-form";
 
 export default function Example() {
   const [email, setEmail] = useState<string>('');

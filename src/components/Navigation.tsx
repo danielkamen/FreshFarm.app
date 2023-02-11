@@ -57,7 +57,7 @@ export default function Navigation() {
         <div className="relative z-20">
           <div className="mx-auto flex max-w-7xl items-center justify-between py-5 px-6 sm:py-4 md:justify-start md:space-x-10 lg:px-8">
             <div>
-              <a href="src/components/Navigation#" className="flex">
+              <a href="" className="flex">
                 <span className="sr-only">Your Company</span>
                 <div className="h-8 w-auto sm:h-10">
                   <div className="transform transition duration-300">

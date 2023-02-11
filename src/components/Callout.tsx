@@ -38,7 +38,7 @@ const callouts:Array<CalloutType> = [
     description: 'Real farms growing real food, at a small cost to you',
     imageSrc: 'https://ohiomagazine.imgix.net/sitefinity/images/default-source/articles/2021/july-august-2021/farms-slate-run-farm-sheep-credit-megan-leigh-barnard.jpg?sfvrsn=59d8a238_8&w=960&auto=compress%2Cformat',
     imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    to:MEETFARMERSPAGE, 
+    to: MEETFARMERSPAGE,
   },
 ]
 
