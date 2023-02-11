@@ -9,7 +9,7 @@ export default function Example() {
   const [error, setError] = useState({email: '', password: ''});
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [isBuyer, setIsBuyer] = useState<boolean>(true);
+  const [isFarmer, setIsFarmer] = useState<boolean>(false);
   let navigate = useNavigate(); 
 
   return (
@@ -44,12 +44,13 @@ export default function Example() {
                   onSubmit={async (event) => {
                     event.preventDefault();
                     try {
-                      await createUserWithEmailAndPassword(
+                      const userAuth = await createUserWithEmailAndPassword(
                         auth,
                         email,
                         password
                       );
-                      if (isBuyer) {
+                      const user = userAuth.user;
+                      if (!isFarmer) {
                         await addDoc(collection(db, "buyers"), {
                           email_address: email,
                           created_at: new Date(),
@@ -64,6 +65,10 @@ export default function Example() {
                           updated_at: new Date(),
                         });
                       }
+                      await addDoc(collection(db, "users"), {
+                        user_id: user.uid,
+                        isFarmer: isFarmer
+                      });
                       navigate(PRODUCTPAGE)
                     } catch (e: any) {
                       const err = (e as Error).message;
@@ -144,7 +149,7 @@ export default function Example() {
                         name="seller"
                         type="checkbox"
                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                        onChange={(e) => setIsBuyer(e.target.checked)}
+                        onChange={(e) => setIsFarmer(e.target.checked)}
                       />
                       <label htmlFor="seller" className="ml-2 block text-sm text-gray-900">
                         Farmer
