@@ -7,6 +7,8 @@ import ViewProductPage from "./pages/ViewProductPage";
 import CartPage from "./pages/CartPage";
 import LeaveReviewPage from "./pages/LeaveReviewPage";
 import EditProductPage from "./pages/EditProductPage";
+import MeetFarmersPage from "./pages/MeetFarmersPage";
+import FarmerInfoPage from "./pages/FarmerInfoPage";
 // VERIFYFARMER,
 import {HOME, LOGIN, SIGNUPFARMER, SEARCH, PRODUCTPAGE, VIEWPRODUCTPAGE, CARTPAGE, LEAVEREVIEWPAGE, EDITPRODUCTPAGE} from './constants/routes'
 import {
@@ -14,9 +16,6 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
-
-
-
 
 function App() {
   return (
@@ -35,7 +34,10 @@ function App() {
              <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
 
         </Routes>
+          <MeetFarmersPage/>
+          <FarmerInfoPage/>
         </>
+
       </div>
         
     </Router>
