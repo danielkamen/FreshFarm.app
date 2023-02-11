@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const people = [
   {
     name: 'Lindsay Walton',
@@ -6,6 +8,7 @@ const people = [
         'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
     twitterUrl: '#',
     linkedinUrl: '#',
+    to:'/farm1'
   },
   {
     name: 'Lindsay Walton',
@@ -14,6 +17,7 @@ const people = [
         'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
     twitterUrl: '#',
     linkedinUrl: '#',
+    to:'/farm2'
   },
   {
     name: 'Lindsay Walton',
@@ -22,6 +26,7 @@ const people = [
         'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
     twitterUrl: '#',
     linkedinUrl: '#',
+    to:'/farm3'
   },
   {
     name: 'Lindsay Walton',
@@ -30,6 +35,7 @@ const people = [
         'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
     twitterUrl: '#',
     linkedinUrl: '#',
+    to:'/farm4'
   },
   {
     name: 'Lindsay Walton',
@@ -38,6 +44,7 @@ const people = [
         'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
     twitterUrl: '#',
     linkedinUrl: '#',
+    to:'/farm5'
   },
   {
     name: 'Lindsay Walton',
@@ -46,6 +53,7 @@ const people = [
         'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
     twitterUrl: '#',
     linkedinUrl: '#',
+    to:'/farm6'
   },
 ]
 
@@ -66,7 +74,8 @@ export default function MeetFarmersPage() {
               role="list"
               className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
           >
-            {people.map((person) => (
+          {people.map((person) => (
+              <Link to={person.to}>
                 <li key={person.name}>
                   <img className="aspect-[3/2] w-full rounded-2xl object-cover"
                        src={person.imageUrl} alt=""/>
@@ -97,7 +106,8 @@ export default function MeetFarmersPage() {
                       </a>
                     </li>
                   </ul>
-                </li>
+              </li>
+              </Link>
             ))}
           </ul>
         </div>

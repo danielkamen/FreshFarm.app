@@ -4,10 +4,10 @@ import Callout from "../components/Callout";
 
 export default function HomePage() {
   return (
-      <div>
-        <Navigation/>
-        <About/>
-        <Callout />
-      </div>
+    <div>
+      <Navigation />
+      <About />
+      <Callout />
+    </div>
   );
 }
