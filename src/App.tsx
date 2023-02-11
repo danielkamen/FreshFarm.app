@@ -11,7 +11,7 @@ import MeetFarmersPage from "./pages/MeetFarmersPage";
 import FarmerInfoPage from "./pages/FarmerInfoPage";
 import LoginPage from './pages/LoginPage';
 // VERIFYFARMER,
-import {HOME, LOGIN, SIGNUP, SEARCH, PRODUCTPAGE, VIEWPRODUCTPAGE, CARTPAGE, LEAVEREVIEWPAGE, EDITPRODUCTPAGE} from './constants/routes'
+import {HOME, LOGIN, SIGNUP, SEARCH, PRODUCTPAGE, VIEWPRODUCTPAGE, CARTPAGE, LEAVEREVIEWPAGE, EDITPRODUCTPAGE, MEETFARMERSPAGE} from './constants/routes'
 import {
   BrowserRouter as Router,
   Routes,
@@ -32,7 +32,8 @@ function App() {
             <Route path={EDITPRODUCTPAGE} element={<EditProductPage />} />
             <Route path={VIEWPRODUCTPAGE} element={<ViewProductPage />} />
             <Route path={CARTPAGE} element={<CartPage />} />
-             <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
+            <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage/>}/>
+            <Route path={MEETFARMERSPAGE} element={<MeetFarmersPage/>}/>
 
         </Routes>
 
