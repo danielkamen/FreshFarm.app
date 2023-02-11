@@ -18,11 +18,5 @@ export const VIEWPRODUCTPAGE = '/product'
 
 export const CARTPAGE ='/cartpage'
 export const LEAVEREVIEWPAGE = '/review'
-
-
-// an individual product editor from farmers POV
-// maybe this links to their farms info page, with a section where they can add items, which brings them to this page?
-// farmers about --> their products --> this page
-export const EDITPRODUCTPAGE = '/editproducts'
-
-export const ALLFARMERS = '/farmers'
+export const EDITPRODUCTPAGE ='/editproducts'
+export const MEETFARMERSPAGE ='/meetfarmers'
