@@ -21,35 +21,29 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon, ShoppingBagIcon } from "@heroicons/react/20/solid";
-import { LOGIN, SIGNUP, PRODUCTPAGE, CARTPAGE } from "../constants/routes";
+import { LOGIN, SIGNUP, PRODUCTPAGE, CARTPAGE, MEETFARMERSPAGE } from "../constants/routes";
 
 import { getAuth } from "firebase/auth";
 
 const features = [
   {
-    name: "Analytics",
+    name: "View Farmers",
     description:
-      "Get a better understanding of where your traffic is coming from.",
-    href: "#",
+      "Find local farmers",
+    to:MEETFARMERSPAGE,
     icon: ChartBarIcon,
   },
   {
-    name: "Engagement",
-    description: "Speak directly to your customers in a more meaningful way.",
-    href: "#",
+    name: "View Produce",
+    description: "Find fresh produce near you",
+    to:PRODUCTPAGE,
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Security",
-    description: "Your customers' data will be safe and secure.",
-    href: "#",
+    name: "Cart",
+    description: "View your cart",
+    to:CARTPAGE,
     icon: ShieldCheckIcon,
-  },
-  {
-    name: "Integrations",
-    description: "Connect with third-party tools that you're already using.",
-    href: "#",
-    icon: Squares2X2Icon,
   },
 ];
 
@@ -117,9 +111,9 @@ export default function Navigation() {
                       <Popover.Panel className="absolute inset-x-0 top-full z-10 hidden transform bg-white shadow-lg md:block">
                         <div className="mx-auto grid max-w-7xl gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
                           {features.map((item) => (
-                            <a
+                            <Link
                               key={item.name}
-                              href={item.href}
+                              to={item.to}
                               className="-m-3 flex flex-col justify-between rounded-lg p-3 hover:bg-gray-50">
                               <div className="flex md:h-full lg:flex-col">
                                 <div className="flex-shrink-0">
@@ -145,7 +139,7 @@ export default function Navigation() {
                                   </p>
                                 </div>
                               </div>
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       </Popover.Panel>
@@ -319,9 +313,9 @@ export default function Navigation() {
                 <nav>
                   <div className="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
                     {features.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.to}
                         className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50">
                         <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
                           <item.icon className="h-6 w-6" aria-hidden="true" />
@@ -329,7 +323,7 @@ export default function Navigation() {
                         <div className="ml-4 text-base font-medium text-gray-900">
                           {item.name}
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </nav>
