@@ -3,8 +3,8 @@ import { CheckCircleIcon, ChevronRightIcon, EnvelopeIcon } from '@heroicons/reac
 const applications = [
   {
     applicant: {
-      name: 'Ricardo Cooper',
-      email: 'ricardo.cooper@example.com',
+      name: 'Mangoes',
+      email: 'FARMER EMAIL',
       imageUrl:
           'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     },
@@ -15,8 +15,8 @@ const applications = [
   },
   {
     applicant: {
-      name: 'Kristen Ramos',
-      email: 'kristen.ramos@example.com',
+      name: 'Asian Pear',
+      email: 'FARMER EMAIL',
       imageUrl:
           'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     },
@@ -27,8 +27,8 @@ const applications = [
   },
   {
     applicant: {
-      name: 'Ted Fox',
-      email: 'ted.fox@example.com',
+      name: 'Banana',
+      email: 'FARMER EMAIL',
       imageUrl:
           'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     },
