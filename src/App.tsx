@@ -3,6 +3,7 @@ import ProductPage from "./pages/ProductPage";
 import ViewProductPage from "./pages/ViewProductPage";
 import CartPage from "./pages/CartPage";
 import LeaveReviewPage from "./pages/LeaveReviewPage";
+import EditProductPage from "./pages/EditProductPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <ViewProductPage/>
         <CartPage/>
         <LeaveReviewPage/>
+        <EditProductPage/>
       </div>
   );
 }
