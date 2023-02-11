@@ -1,3 +1,5 @@
+import SignUpFarmer from "./components/SignUpFarmer";
+
 function App() {
   return (
     <div className="flex flex-col items-center justify-center h-screen text-red-300 bg-gradient-to-br from-gray-300 via-teal-700 to-gray-800">
@@ -20,6 +22,7 @@ function App() {
       <p className="mt-6 tracking-wide">
         Edit <code>src/App.tsx</code> and save to reload.
       </p>
+      <SignUpFarmer />
       <div className="flex justify-center mt-4">
         <a
           className="px-4 py-2 text-white bg-indigo-500 rounded hover:bg-indigo-600"
