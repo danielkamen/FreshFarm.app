@@ -16,14 +16,14 @@ require('@tailwindcss/aspect-ratio'),
 */
 const callouts = [
   {
-    name: 'Find Produce',
+    name: 'Browse Produce',
     description: 'A variety of fresh produce, easily available to you',
     imageSrc: 'https://www.gardenroute.gov.za/wp-content/uploads/2021/08/Fresh-produce-market.jpg',
     imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
     href: '#',
   },
   {
-    name: 'Find Farms',
+    name: 'Meet Our Farmers',
     description: 'Real farms growing real food, at a small cost to you',
     imageSrc: 'https://ohiomagazine.imgix.net/sitefinity/images/default-source/articles/2021/july-august-2021/farms-slate-run-farm-sheep-credit-megan-leigh-barnard.jpg?sfvrsn=59d8a238_8&w=960&auto=compress%2Cformat',
     imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
