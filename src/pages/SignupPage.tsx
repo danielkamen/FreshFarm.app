@@ -64,6 +64,9 @@ export default function Example() {
                           updated_at: new Date(),
                         });
                       }
+                      if (user && !user.emailVerified) {
+                        await sendEmailVerification(user);
+                      }
                       await addDoc(collection(db, "users"), {
                         user_id: user.uid,
                         isFarmer: isFarmer,

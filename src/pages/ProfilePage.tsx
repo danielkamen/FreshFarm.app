@@ -8,7 +8,8 @@ import { db } from '../firebase';
 
 export default function Example() {
   let navigate = useNavigate();
-  const [error, setError] = useState<string>('');
+  const [status, setStatus] = useState<string>('-1');
+  const [profilePicture, setProfilePicture] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [address, setAddress] = useState<string>('');
@@ -19,15 +20,13 @@ export default function Example() {
   const [description, setDescription] = useState<string>('');
   const [photo, setPhoto] = useState<string>('');
 
-  const { isFarmer, collectionUID, collectionUser } = useUserContext();
+  const { databaseUserUID, databaseUser, collectionUID, collectionUser } = useUserContext();
 
   const { defaultAddress, defaultCity, defaultState, defaultZip } = useMemo(() => {
     const location = collectionUser?.address?.split(', ');
     if (!location) return '';
-    if (location.length === 4) {
-      return location[0], location[1], location[2], location[3];
-    } else if (location.length === 3) {
-      return location[0], location[1], location[2];
+    if (location.length === 3) {
+      return location[0], location[1], location[2], '';
     } else if (location.length === 2) {
       return location[0], location[1];
     } else if (location.length === 1) {
@@ -48,7 +47,7 @@ export default function Example() {
       onSubmit={async (e) => {
         e.preventDefault();
         try {
-          if (isFarmer) {
+          if (databaseUser?.isFarmer) {
             await setDoc(doc(db, "sellers", collectionUID), {
               name: name,
               address: address + ', ' + city + ', ' + state + ' ' + zip,
@@ -65,9 +64,14 @@ export default function Example() {
               updated_at: new Date()
             }, { merge: true });
           }
+          await setDoc(doc(db, "users", databaseUserUID), 
+            { profile_url: profilePicture }, { merge: true }
+          )
+          setStatus('Saved profile.');
         } catch (e) {
           console.log(e);
-          setError('Error updating profile. Please try again later.');
+          setStatus('Error updating profile. Please try again later.');
+        } finally {
           setName('');
           setPhoneNumber('');
           setAddress('');
@@ -76,6 +80,7 @@ export default function Example() {
           setZip('');
           setDescription('');
           setPhoto('');
+          setProfilePicture('');
         }
       }}>
         <div className="bg-white px-4 py-5 shadow sm:rounded-lg sm:p-6">
@@ -87,7 +92,26 @@ export default function Example() {
               </p>
             </div>
             <div className="mt-5 space-y-6 md:col-span-2 md:mt-0">
-              {isFarmer &&
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Photo</label>
+              <div className="mt-1 flex items-center space-x-5">
+                <span className="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100 view-cover">
+                  {profilePicture.length === 0 && 
+                  <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                  }
+                  <img className="object-cover h-full w-full" src={profilePicture} alt='profile'/>
+                </span>
+                <input
+                  type="file"
+                  className="rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  onChange={(e) => e.target.files && setProfilePicture(URL.createObjectURL(e.target.files[0]))}
+                />
+              </div>
+            </div>
+
+              {databaseUser?.isFarmer &&
                 <div>
                   <div>
                     <label htmlFor="about" className="block text-sm font-medium text-gray-700">
@@ -141,7 +165,7 @@ export default function Example() {
                                   setPhoto(URL.createObjectURL(e.target.files[0]));
                                 }}
                               }/>
-                            {photo.length !== 0 && <img placeholder={collectionUser?.image_url} src={photo} alt='preview' />}
+                            {photo.length !== 0 && <img placeholder={collectionUser?.image_url} src={photo} alt='preview-farm' />}
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>
@@ -274,8 +298,8 @@ export default function Example() {
           </div>
         </div>
         <div className='items-center'>
-        {error !== '' && (
-          <div className="ml-5 text-normal text-red-500 ">{error}</div>
+        {status !== '-1' && (
+          <div className="ml-5 text-normal text-red-500 ">{status}</div>
         )}
           <div className="flex justify-end">
             <button
