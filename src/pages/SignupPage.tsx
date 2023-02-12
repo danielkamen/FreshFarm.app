@@ -177,7 +177,7 @@ export default function Example() {
                     <button
                       type="submit"
                       form="signup-form"
-                      className="flex w-full justify-center rounded-md border border-transparent bg-secondary py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-secondary-accent focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
+                      className="flex w-full justify-center rounded-md border border-transparent bg-tertiary-accent py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
                       Sign up
                     </button>
                   </div>
