@@ -99,7 +99,9 @@ export default function Navigation() {
                   onSubmit={(e) => {
                     e.preventDefault();
                     if (searchTerm) {
-                      navigate(SEARCHRESULTPAGE);
+                      navigate(`${SEARCHRESULTPAGE}?searchTerm=${searchTerm}`);
+                    } else {
+                      navigate(0);
                     }
                   }}>
                   <input
@@ -150,9 +152,7 @@ export default function Navigation() {
                               <div className="w-full bg-grey-100" />
                             </div>
                             <div className="relative mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-                              <div className="grid gap-y-10 bg-white px-4 h-16 py-8 sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12">
-                               
-                              </div>
+                              <div className="grid gap-y-10 bg-white px-4 h-16 py-8 sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12"></div>
                             </div>
                           </Popover.Panel>
                         </Transition>
@@ -161,9 +161,17 @@ export default function Navigation() {
                   </Popover>
                 </div>
               </div>
-              <div className="bg-tertiary-accent ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center hover:bg-secondary">
+              <button
+                onClick={() => {
+                  if (searchTerm) {
+                    navigate(`${SEARCHRESULTPAGE}?searchTerm=${searchTerm}`);
+                  } else {
+                    navigate(0);
+                  }
+                }}
+                className="bg-tertiary-accent ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center hover:bg-secondary">
                 <span>Search</span>
-              </div>
+              </button>
             </div>
           </Popover.Group>
           <div className="flex flex-1 ml-4 justify-end">
@@ -197,13 +205,26 @@ export default function Navigation() {
                   </Link>
                   <Menu as="div" className="relative inline-block text-left">
                     <div>
-                      <Menu.Button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" className="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary"
-                      type="button">
+                      <Menu.Button
+                        id="dropdownInformationButton"
+                        data-dropdown-toggle="dropdownInformation"
+                        className="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary"
+                        type="button">
                         Account
-                        <svg className="w-4 h-4 ml-2"aria-hidden="true"fill="none"stroke="currentColor"viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round"stroke-linejoin="round"stroke-width="2"d="M19 9l-7 7-7-7"></path></svg></Menu.Button>
-
+                        <svg
+                          className="w-4 h-4 ml-2"
+                          aria-hidden="true"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </Menu.Button>
                     </div>
                     <Transition
                       as={Fragment}

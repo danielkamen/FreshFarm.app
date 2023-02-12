@@ -101,7 +101,7 @@ export default function ProfilePage() {
                           </svg>
                         )}
                         <img
-                          className="object-cover h-full w-full"
+                          className="object-cover object-center h-full w-full"
                           src={profilePicture}
                           alt="profile"
                         />
