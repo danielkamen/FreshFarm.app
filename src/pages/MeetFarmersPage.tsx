@@ -29,7 +29,6 @@ export default function MeetFarmersPage() {
 
   
   return (
-    
     <div>
       <Navigation/>
         <div className="bg-white py-24 sm:py-32">

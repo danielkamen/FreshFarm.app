@@ -6,7 +6,7 @@ import { HOME } from '../constants/routes';
 import { useUserContext } from '../contexts/useUserContext';
 import { db } from '../firebase';
 
-export default function Example() {
+export default function ProfilePage() {
   let navigate = useNavigate();
   const [error, setError] = useState<string>('');
   const [name, setName] = useState<string>('');
