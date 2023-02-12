@@ -5,41 +5,41 @@ import { Link } from "react-router-dom";
 const products = [
   {
     id: 1,
-    name: "Earthen Bottle",
+    name: "Strawberries",
     href: "#",
     price: "$48",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+      "https://hgic.clemson.edu/wp-content/uploads/1999/06/freshly-harvested-strawberries-ready-to-be-enjoyed-scaled.jpeg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
   {
     id: 2,
-    name: "Nomad Tumbler",
+    name: "Blackberries",
     href: "#",
     price: "$35",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+      "https://wamu.org/wp-content/uploads/2020/08/6060143865_e48165e959_k-1500x998.jpg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
   {
     id: 3,
-    name: "Focus Paper Refill",
+    name: "Watermelon",
     href: "#",
     price: "$89",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+      "https://cdn.shopify.com/s/files/1/0038/6259/3665/products/Produce-Buddies-Watermelon.jpg?v=1634649207",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
   },
   {
     id: 4,
-    name: "Machined Mechanical Pencil",
+    name: "Potatoes",
     href: "#",
     price: "$35",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+      "https://www.uvfarmersmarket.com/wp-content/uploads/brizy/imgs/pot-738x457x205x0x328x457x1563411775.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -121,8 +121,13 @@ export default function ProductPage() {
   return (
     <div className="bg-white">
       <Navigation />
-      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="sr-only">Products</h2>
+      <div className="items-center margin-auto w-8xl">
+      <h2 className="text-center margin-auto w-8xl text-4xl font-bold tracking-tight text-black-400 sm:text-6xl py-6 pl-10xl pt-10">
+        Product Categories
+      </h2>
+      </div>
+      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
+
 
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
@@ -135,9 +140,9 @@ export default function ProductPage() {
                 />
               </div>
               <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">
-                {product.price}
-              </p>
+              {/*<p className="mt-1 text-lg font-medium text-gray-900">*/}
+              {/*  {product.price}*/}
+              {/*</p>*/}
             </Link>
           ))}
         </div>

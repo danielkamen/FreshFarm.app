@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore"; 
 import { auth, db } from "../firebase";
 import { PRODUCTPAGE } from '../constants/routes'
+import logo from "./farmfreshnavlogo.gif";
 
 export default function Example() {
   const [error, setError] = useState({email: '', password: ''});
