@@ -26,6 +26,7 @@ import {
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useUserContext } from "../contexts/useUserContext";
 import SearchResultPage from "../pages/SearchResultPage";
+import NotFoundPage from "../pages/NotFoundPage";
 
 export const RouteProvider = () => {
   const { user } = useUserContext();
@@ -36,6 +37,7 @@ export const RouteProvider = () => {
       {isLoaded ? (
         <Router>
           <Routes>
+            <Route path="*" element={<NotFoundPage />} />
             <Route path={HOME} element={<HomePage />} />
             <Route path={LOGIN} element={<LoginPage />} />
             <Route path={SIGNUP} element={<SignupPage />} />

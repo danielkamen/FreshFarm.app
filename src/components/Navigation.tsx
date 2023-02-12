@@ -101,7 +101,9 @@ export default function Navigation() {
                   onSubmit={(e) => {
                     e.preventDefault();
                     if (searchTerm) {
-                      navigate(SEARCHRESULTPAGE);
+                      navigate(`${SEARCHRESULTPAGE}?searchTerm=${searchTerm}`);
+                    } else {
+                      navigate(0);
                     }
                   }}>
                   <input
@@ -116,7 +118,17 @@ export default function Navigation() {
        
               </div>
               <div className="bg-primary-accent ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center hover:bg-primary">
+                <button
+                onClick={() => {
+                  if (searchTerm) {
+                    navigate(`${SEARCHRESULTPAGE}?searchTerm=${searchTerm}`);
+                  } else {
+                    navigate(0);
+                  }
+                }}
+                className="bg-tertiary-accent ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center hover:bg-primary-accent">
                 <span>Search</span>
+              </button>
               </div>
             </div>
           </Popover.Group>
@@ -151,13 +163,26 @@ export default function Navigation() {
                   </Link>
                   <Menu as="div" className="relative inline-block text-left">
                     <div>
-                      <Menu.Button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" className="text-white bg-primary hover:bg-primary-accent focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-primary-accent dark:hover:bg-primary dark:focus:ring-primary"
-                      type="button">
+                      <Menu.Button
+                        id="dropdownInformationButton"
+                        data-dropdown-toggle="dropdownInformation"
+                        className="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary"
+                        type="button">
                         Account
-                        <svg className="w-4 h-4 ml-2"aria-hidden="true"fill="none"stroke="currentColor"viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round"stroke-linejoin="round"stroke-width="2"d="M19 9l-7 7-7-7"></path></svg></Menu.Button>
-
+                        <svg
+                          className="w-4 h-4 ml-2"
+                          aria-hidden="true"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </Menu.Button>
                     </div>
                     <Transition
                       as={Fragment}

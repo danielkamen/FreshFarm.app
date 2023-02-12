@@ -11,6 +11,7 @@ import {
 import { db } from "../firebase";
 import { getDoc, doc } from "firebase/firestore";
 import { Category } from "../types";
+import { useCategoryContext } from "../contexts/useCategoryContext";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -76,22 +77,15 @@ export default function FilterList({
 }: PropsWithChildren<FilterListProps>) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [category, setCategory] = useState<Category | null>(null);
+  const { categories } = useCategoryContext();
 
   useEffect(() => {
     if (categoryId !== null) {
-      const fetchCategory = async () => {
-        const categoryDoc = doc(db, "categories", categoryId);
-        const querySnapshot = await getDoc(categoryDoc);
-
-        if (querySnapshot.exists()) {
-          setCategory(querySnapshot.data() as Category);
-        } else {
-          setCategory(null);
-        }
-      };
-      fetchCategory();
+      setCategory(
+        categories.find((category) => category.id === categoryId) || null
+      );
     }
-  });
+  }, [categories, categoryId]);
 
   return (
     <div className="bg-white">
@@ -214,16 +208,16 @@ export default function FilterList({
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {category !== null && (
-            <div className="flex pb-12 rounded-lg justify-start">
-              <div>
-                <h2 className="text-center font-semibold text-xl py-4">
+            <div className="flex mb-12 justify-start">
+              <div className="block shadow-lg rounded-xl p-8">
+                <h2 className="text-center font-semibold text-2xl pb-4">
                   {category.name}
                 </h2>
                 <img
-                src={category.image_url}
-                alt={category.name}
-                className="w-40 h-40 rounded-lg object-cover object-center group-hover:opacity-75"
-              />
+                  src={category.image_url}
+                  alt={category.name}
+                  className="mx-auto w-40 h-40 rounded-lg object-cover object-center group-hover:opacity-75"
+                />
               </div>
             </div>
           )}

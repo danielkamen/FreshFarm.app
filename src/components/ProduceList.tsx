@@ -7,11 +7,7 @@ import { Link } from "react-router-dom";
 import { Produce } from "../types";
 import { PRODUCEPAGE } from "../constants/routes";
 
-export default function ProduceList({
-  produce,
-}: {
-  produce: Array<Produce>;
-}) {
+export default function ProduceList({ produce }: { produce: Array<Produce> }) {
   return (
     <div className="overflow-hidden bg-white shadow sm:rounded-md">
       <ul className="divide-y divide-gray-200">
