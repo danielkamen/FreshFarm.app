@@ -51,7 +51,7 @@ const callouts: Array<CalloutType> = [
       "https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/Sarah_Benoit_Delbecq_Indiana_1.jpg?crop=0%2C233%2C4000%2C2200&wid=4000&hei=2200&scl=1.0",
     imageAlt:
       "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
-    to: SIGNUP,
+    to: SIGNUP+'?isFarmer=true',
   },
 ];
 

@@ -8,12 +8,13 @@ import { auth, db } from "../firebase";
 function useUser() {
   const [user, setUser] = useState<User | null | undefined>();
 
-  const [isFarmer, setIsFarmer] = useState<boolean | null>(null);
+  const [databaseUserUID, setDatabaseUserUID] = useState<string>('');
+  const [databaseUser, setDatabaseUser] = useState<DocumentData | null>(null);
   const [collectionUID, setCollectionUID] = useState<string>('');
   const [collectionUser, setCollectionUser] = useState<DocumentData | null>(null);
 
   useEffect(() => {
-    async function getIsFarmer() {
+    async function getDatabaseUser() {
       if (user) {
         const usersRef = collection(db, "users");
         const userQuery = query(usersRef, where("user_id", "==", user.uid));        
@@ -21,7 +22,8 @@ function useUser() {
         
         let farmer = false;
         querySnapshot.forEach((doc) => {
-          setIsFarmer(doc.data().isFarmer);
+          setDatabaseUser(doc.data());
+          setDatabaseUserUID(doc.id);
           farmer = doc.data().isFarmer;
         });
         let idRef;
@@ -37,10 +39,10 @@ function useUser() {
           setCollectionUID(doc.id)});
         }
     };
-    if (isFarmer == null) {
-      getIsFarmer();
+    if (databaseUser == null) {
+      getDatabaseUser();
     }
-  }, [collectionUID, isFarmer, user]);
+  }, [collectionUID, databaseUser, user]);
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
@@ -55,7 +57,8 @@ function useUser() {
   return {
     user,
     setUser,
-    isFarmer,
+    databaseUserUID,
+    databaseUser,
     collectionUID,
     collectionUser
   };

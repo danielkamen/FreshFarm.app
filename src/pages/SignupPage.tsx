@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import logo from "./farmfreshnavlogo.gif";
-import { HOME, LOGIN } from "../constants/routes";
+import { HOME, PROFILE, LOGIN } from "../constants/routes";
 
 export default function Example() {
   const [error, setError] = useState({ email: "", password: "" });
@@ -12,7 +12,7 @@ export default function Example() {
   const [password, setPassword] = useState<string>("");
   const [isFarmer, setIsFarmer] = useState<boolean>(false);
   let navigate = useNavigate();
-
+  const [searchParams, setSearchParams] = useSearchParams();
   return (
     <>
       <div className="flex bg-[#F8F9F7] min-h-full">
@@ -64,11 +64,14 @@ export default function Example() {
                           updated_at: new Date(),
                         });
                       }
+                      if (user && !user.emailVerified) {
+                        await sendEmailVerification(user);
+                      }
                       await addDoc(collection(db, "users"), {
                         user_id: user.uid,
                         isFarmer: isFarmer,
                       });
-                      navigate(HOME);
+                      navigate(PROFILE);
                     } catch (e: any) {
                       const err = (e as Error).message;
                       if (
@@ -164,6 +167,7 @@ export default function Example() {
                         type="checkbox"
                         className="h-4 w-4 rounded border-gray-300 text-tertiary-accent focus:ring-tertiary-accent"
                         onChange={(e) => setIsFarmer(e.target.checked)}
+                        defaultChecked={searchParams.get("isFarmer") === 'true'}
                       />
                       <label
                         htmlFor="seller"
