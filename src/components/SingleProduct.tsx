@@ -189,7 +189,7 @@ export default function SingleProduct() {
                 <div className="sm:flex-col1 mt-10 flex">
                   <button
                       type="submit"
-                      className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                      className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-primary py-3 px-8 text-base font-medium text-white hover:bg-primary-accent focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                   >
                     Add to bag
                   </button>
@@ -224,12 +224,12 @@ export default function SingleProduct() {
                                   <span className="ml-6 flex items-center">
                               {open ? (
                                   <MinusIcon
-                                      className="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+                                      className="block h-6 w-6 text-primary group-hover:text-indigo-500"
                                       aria-hidden="true"
                                   />
                               ) : (
                                   <PlusIcon
-                                      className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                                      className="block h-6 w-6 text-primary group-hover:text-gray-500"
                                       aria-hidden="true"
                                   />
                               )}
