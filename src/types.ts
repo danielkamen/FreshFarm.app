@@ -17,7 +17,6 @@ export type Category = {
     id: string;
     name: string;
     image_url: string;
-    image_alt: "Not available";
 }
 
 export type Product = {

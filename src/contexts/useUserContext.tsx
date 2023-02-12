@@ -2,7 +2,7 @@ import { User } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 import constate from "constate";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, DocumentData } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
 function useUser() {
@@ -10,6 +10,7 @@ function useUser() {
 
   const [isFarmer, setIsFarmer] = useState<boolean | null>(null);
   const [collectionUID, setCollectionUID] = useState<string>('');
+  const [collectionUser, setCollectionUser] = useState<DocumentData | null>(null);
 
   useEffect(() => {
     async function getIsFarmer() {
@@ -32,6 +33,7 @@ function useUser() {
         const idQuery = query(idRef, where("email_address", "==", user.email));
         const idQuerySnapshot = await getDocs(idQuery);
         idQuerySnapshot.forEach(doc => {
+          setCollectionUser(doc.data());
           setCollectionUID(doc.id)});
         }
     };
@@ -55,6 +57,7 @@ function useUser() {
     setUser,
     isFarmer,
     collectionUID,
+    collectionUser
   };
 }
 
