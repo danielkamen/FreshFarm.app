@@ -70,7 +70,7 @@ export default function Example() {
                         user_id: user.uid,
                         isFarmer: isFarmer
                       });
-                      navigate(PRODUCTPAGE)
+                      navigate(HOME)
                     } catch (e: any) {
                       const err = (e as Error).message;
                       if (err === 'Firebase: Error (auth/email-already-in-use).') {
