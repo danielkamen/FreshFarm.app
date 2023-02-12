@@ -6,6 +6,7 @@ import { collection, getDocs } from "@firebase/firestore";
 import { Farmer } from "../types";
 import Navigation from "../components/Navigation";
 
+
 export default function MeetFarmersPage() {
 
   const [farmers, setFarmers] = useState<Array<Farmer>>([]);

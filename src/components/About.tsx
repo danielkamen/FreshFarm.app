@@ -75,12 +75,12 @@ export default function About() {
             </linearGradient>
           </defs>
         </svg>
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="bg-gray-100 rounded-2xl mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-4xl font-bold tracking-tight text-black-400 sm:text-6xl py-6">
               About Us
             </h2>
-            <p className="flex gap-x-4 rounded-xl bg-black/5 p-6 ring-1 ring-inset ring-white/10">
+            <p className="flex gap-x-4 rounded-2xl bg-black/5 p-6 ring-1 ring-inset ring-white/10">
               FreshFarm connects local farmers with buyers in the area, providing access to
               affordable, sustainable, and fresh produce that might otherwise go to waste.
               By reducing food waste and supporting small-scale farmers, FreshFarm is helping to
@@ -88,11 +88,11 @@ export default function About() {
             </p>
           </div>
           <div
-              className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+              className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8 pb-10">
             {cards.map((card) => (
                 <div
                     key={card.name}
-                    className="flex gap-x-4 rounded-l-2xl bg-black/5 p-6 ring-1 ring-inset ring-white/10">
+                    className="flex gap-x-4 rounded-2xl bg-black/5 p-6 ring-1 ring-inset ring-white/10">
                   <card.icon
                       className="h-7 w-5 flex-none text-indigo-400"
                       aria-hidden="true"
