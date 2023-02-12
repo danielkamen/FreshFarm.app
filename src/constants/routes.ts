@@ -1,20 +1,16 @@
 export const HOME = '/'
 
-// is the same for farmer and buyer
 export const LOGIN = '/login'
 export const SIGNUP = '/signup'
-export const PROFILE = '/manageprofile'
+export const PROFILE = '/manage-profile'
+export const FORGETPASSWORDPAGE = '/forget-password'
 
-// goes to page with all produce
-export const PRODUCTPAGE = '/produce'
-//export const VERIFYFARMER = '/verifyfarmer'
+export const PRODUCEPAGE = '/produce'
+export const VIEWPRODUCEPAGE = '/produce/:produceId'
+export const EDITPRODUCEPAGE = '/produce/:produceId/edit'
 
-// an indiviual product. IS THIS DIFFERENT PER ITEM AND IF SO HOW
-export const VIEWPRODUCTPAGE = '/produce/:produceId'
-
-export const CARTPAGE ='/cart'
+export const CARTPAGE = '/cart'
 export const LEAVEREVIEWPAGE = '/review'
-export const EDITPRODUCTPAGE ='/editproducts'
+
 export const MEETFARMERSPAGE = '/farmers'
-export const FARMERINFOPAGE ='/farmer'
-export const VIEWFARMERPAGE ='/farmers/:farmerId'
+export const VIEWFARMERPAGE = '/farmers/:farmerId'

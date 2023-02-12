@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { HOME, PRODUCTPAGE } from "../constants/routes";
+import { FORGETPASSWORDPAGE, HOME, SIGNUP } from "../constants/routes";
 import { useUserContext } from "../contexts/useUserContext";
 import logo from "./farmfreshnavlogo.gif";
 
@@ -15,33 +15,23 @@ export default function Example() {
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
-      <div className="bflex min-h-full">
+      <div className="flex bg-[#F8F9F7] min-h-full">
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <img
-                className="h-12 w-auto"
-                src={logo}
-                alt="Your Company"
-              />
+              <Link to={HOME} className="w-12 block">
+                <img className="h-12 w-auto" src={logo} alt="FreshFarm" />
+              </Link>
               <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
                 Sign in to your account
               </h2>
               <p className="mt-2 text-sm text-gray-600">
                 Or{" "}
-                <a
-                  href="#"
-                  className="font-medium text-indigo-600 hover:text-indigo-500">
-                  start your 14-day free trial
-                </a>
+                <Link
+                  to={SIGNUP}
+                  className="font-medium text-secondary hover:text-secondary-accent">
+                  sign up now
+                </Link>
               </p>
             </div>
             <div className="mt-8">
@@ -92,7 +82,7 @@ export default function Example() {
                         name="email"
                         autoComplete="email"
                         required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                       />
@@ -117,7 +107,7 @@ export default function Example() {
                         type="password"
                         autoComplete="current-password"
                         required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                       />
@@ -135,7 +125,7 @@ export default function Example() {
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        className="h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary-accent"
                       />
                       <label
                         htmlFor="remember-me"
@@ -145,11 +135,11 @@ export default function Example() {
                     </div>
 
                     <div className="text-sm">
-                      <a
-                        href="#"
-                        className="font-medium text-indigo-600 hover:text-indigo-500">
+                      <Link
+                        to={FORGETPASSWORDPAGE}
+                        className="font-medium text-secondary hover:text-secondary-accent">
                         Forgot your password?
-                      </a>
+                      </Link>
                     </div>
                   </div>
 
@@ -157,7 +147,7 @@ export default function Example() {
                     <button
                       type="submit"
                       form="login-form"
-                      className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      className="flex w-full justify-center rounded-md border border-transparent bg-secondary py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-secondary-accent focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
                       Sign in
                     </button>
                   </div>

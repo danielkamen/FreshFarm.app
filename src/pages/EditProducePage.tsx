@@ -54,7 +54,7 @@ const product = {
 //   return classes.filter(Boolean).join(' ')
 // }
 
-export default function EditProductPage() {
+export default function EditProducePage() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
 
   return (
