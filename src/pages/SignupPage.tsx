@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
@@ -12,7 +12,7 @@ export default function Example() {
   const [password, setPassword] = useState<string>("");
   const [isFarmer, setIsFarmer] = useState<boolean>(false);
   let navigate = useNavigate();
-
+  const [searchParams, setSearchParams] = useSearchParams();
   return (
     <>
       <div className="flex bg-[#F8F9F7] min-h-full">
@@ -167,6 +167,7 @@ export default function Example() {
                         type="checkbox"
                         className="h-4 w-4 rounded border-gray-300 text-tertiary-accent focus:ring-tertiary-accent"
                         onChange={(e) => setIsFarmer(e.target.checked)}
+                        checked={searchParams.get("isFarmer") === 'true'}
                       />
                       <label
                         htmlFor="seller"
