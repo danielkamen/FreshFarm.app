@@ -14,3 +14,4 @@ export const LEAVEREVIEWPAGE = '/review'
 
 export const MEETFARMERSPAGE = '/farmers'
 export const VIEWFARMERPAGE = '/farmers/:farmerId'
+export const SEARCHRESULTPAGE = '/search'

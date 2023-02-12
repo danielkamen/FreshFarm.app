@@ -21,9 +21,11 @@ import {
   MEETFARMERSPAGE,
   PROFILE,
   VIEWFARMERPAGE,
+  SEARCHRESULTPAGE,
 } from "../constants/routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useUserContext } from "../contexts/useUserContext";
+import SearchResultPage from "../pages/SearchResultPage";
 
 export const RouteProvider = () => {
   const { user } = useUserContext();
@@ -45,6 +47,7 @@ export const RouteProvider = () => {
             <Route path={MEETFARMERSPAGE} element={<MeetFarmersPage />} />
             <Route path={VIEWFARMERPAGE} element={<ViewFarmerPage />} />
             <Route path={PROFILE} element={<ProfilePage />} />
+            <Route path={SEARCHRESULTPAGE} element={<SearchResultPage />} />
           </Routes>
         </Router>
       ) : null}

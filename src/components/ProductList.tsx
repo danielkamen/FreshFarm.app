@@ -24,8 +24,8 @@ export default function ProductList() {
           id: doc.id,
           ...doc.data()
         } as ProductQuery;
-        const categoryData = await getDoc<Category>(productRef.category);
-        const sellerData = await getDoc<Farmer>(productRef.seller);
+        const categoryData = await getDoc<Category>(productRef.category_id);
+        const sellerData = await getDoc<Farmer>(productRef.seller_id);
 
         let productData = {
           id: doc.id,

@@ -17,6 +17,7 @@ export type Category = {
     id: string;
     name: string;
     image_url: string;
+    image_alt: "Not available";
 }
 
 export type Product = {
@@ -38,7 +39,7 @@ export type ProductQuery = {
     image_alt: "Not available";
     price: number;
     quantity: number;
-    category: DocumentReference<Category>;
-    seller: DocumentReference<Farmer>;
+    category_id: DocumentReference<Category>;
+    seller_id: DocumentReference<Farmer>;
     picked_on: Timestamp;
 }

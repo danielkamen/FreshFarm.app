@@ -36,14 +36,18 @@ export default function ProducePage() {
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {categories.map((category) => (
             <Link to={category.id} key={category.id} className="group">
-              <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                <img
-                  src={category.image_url}
-                  alt={category.name}
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
+              <div>
+                <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                  <img
+                    src={category.image_url}
+                    alt={category.name}
+                    className="h-full w-full object-cover object-center group-hover:opacity-75"
+                  />
+                </div>
+                <h3 className="mt-4 text-2xl text-center font-medium text-black">
+                  {category.name}
+                </h3>
               </div>
-              <h3 className="mt-4 text-sm text-gray-700">{category.name}</h3>
             </Link>
           ))}
         </div>

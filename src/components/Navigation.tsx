@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "@firebase/auth";
 import { Menu, Popover, Transition } from "@headlessui/react";
@@ -18,6 +18,7 @@ import {
   HOME,
   MEETFARMERSPAGE,
   PROFILE,
+  SEARCHRESULTPAGE,
 } from "../constants/routes";
 import { auth } from "../firebase";
 import { useUserContext } from "../contexts/useUserContext";
@@ -51,6 +52,8 @@ const features = [
 export default function Navigation() {
   const { user } = useUserContext();
   let navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
     <Popover className="sticky bg-white z-10">
       <div
@@ -58,7 +61,7 @@ export default function Navigation() {
         aria-hidden="true"
       />
       <div className="bg-[#F8F9F7] relative z-20">
-        <div className="mx-auto flex max-w-7xl items-center justify-between py-5 px-4 md:justify-start md:space-x-10">
+        <div className="mx-auto flex max-w-full items-center justify-between py-5 px-4 xl:px-8 md:justify-start md:space-x-10">
           {/** Logo and Company Name */}
           <div className="flex flex-1 mr-4">
             <div className="flex flex-row">
@@ -97,11 +100,18 @@ export default function Navigation() {
                     />
                   </svg>
                 </div>
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  if (searchTerm){
+                  navigate(SEARCHRESULTPAGE)}
+                }}>
                 <input
                   className="flex bg-gray-100 outline-none border-transparent focus:ring-0 focus:border-transparent"
                   type="text"
+                  onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Search produce"
                 />
+                </form>
                 <div className="flex px-4 items-center rounded-lg bg-gray-200 text-gray-500 font-semibold">
                   <Popover>
                     {({ open }) => (
@@ -159,7 +169,7 @@ export default function Navigation() {
               </div>
             </div>
           </Popover.Group>
-          <div>
+          <div className="flex flex-1 ml-4 justify-end">
             <div className="hidden md:flex items-center">
               {!user ? (
                 <>
@@ -175,7 +185,7 @@ export default function Navigation() {
                   </Link>
                 </>
               ) : (
-                <div className="ml-4 flex flex-row items-center">
+                <div className="flex flex-row items-center">
                   <Link
                     to={CARTPAGE}
                     className="group flex items-center p-2 mx-2">
