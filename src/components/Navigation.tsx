@@ -64,12 +64,12 @@ export default function Navigation() {
   const { user } = useUserContext();
   console.log(user)
   return (
-    <Popover className="sticky top-0 bg-white z-10">
+    <Popover className="sticky bg-white z-10">
       <div
         className="pointer-events-none absolute inset-0 z-30 shadow"
         aria-hidden="true"
       />
-      <div className="relative z-20">
+      <div className="bg-[#F8F9F7] relative z-20">
         <div className="mx-auto flex max-w-7xl items-center justify-between py-5 px-6 sm:py-4 md:justify-start md:space-x-10 lg:px-8">
           <div>
             <Link to={HOME} className="flex">
