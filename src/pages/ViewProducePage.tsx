@@ -1,7 +1,7 @@
 import ProductList from "../components/ProductList";
 import SingleProduct from "../components/SingleProduct";
 
-export default function ViewProductPage() {
+export default function ViewProducePage() {
   return (
     <div>
       <SingleProduct />

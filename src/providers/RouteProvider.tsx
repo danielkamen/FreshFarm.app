@@ -1,28 +1,26 @@
 import HomePage from "../pages/HomePage";
 import SignupPage from "../pages/SignupPage";
-import SearchBar from "../components/Navigation";
-import ProductPage from "../pages/ProductPage";
-//import VerifyFarmer from '../pages/VerifyFarmer'
-import ViewProductPage from "../pages/ViewProductPage";
+import ProducePage from "../pages/ProducePage";
+import ViewProducePage from "../pages/ViewProducePage";
 import CartPage from "../pages/CartPage";
 import LeaveReviewPage from "../pages/LeaveReviewPage";
-import EditProductPage from "../pages/EditProductPage";
+import EditProducePage from "../pages/EditProducePage";
 import MeetFarmersPage from "../pages/MeetFarmersPage";
-import FarmerInfoPage from "../pages/FarmerInfoPage";
+import ViewFarmerPage from "../pages/ViewFarmerPage";
 import LoginPage from "../pages/LoginPage";
 import ProfilePage from "../pages/ProfilePage";
-// VERIFYFARMER,
 import {
   HOME,
   LOGIN,
   SIGNUP,
-  PRODUCTPAGE,
-  VIEWPRODUCTPAGE,
+  PRODUCEPAGE,
+  VIEWPRODUCEPAGE,
   CARTPAGE,
   LEAVEREVIEWPAGE,
-  EDITPRODUCTPAGE,
+  EDITPRODUCEPAGE,
   MEETFARMERSPAGE,
   PROFILE,
+  VIEWFARMERPAGE,
 } from "../constants/routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useUserContext } from "../contexts/useUserContext";
@@ -39,12 +37,13 @@ export const RouteProvider = () => {
             <Route path={HOME} element={<HomePage />} />
             <Route path={LOGIN} element={<LoginPage />} />
             <Route path={SIGNUP} element={<SignupPage />} />
-            <Route path={PRODUCTPAGE} element={<ProductPage />} />
-            <Route path={EDITPRODUCTPAGE} element={<EditProductPage />} />
-            <Route path={VIEWPRODUCTPAGE} element={<ViewProductPage />} />
+            <Route path={PRODUCEPAGE} element={<ProducePage />} />
+            <Route path={EDITPRODUCEPAGE} element={<EditProducePage />} />
+            <Route path={VIEWPRODUCEPAGE} element={<ViewProducePage />} />
             <Route path={CARTPAGE} element={<CartPage />} />
             <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
             <Route path={MEETFARMERSPAGE} element={<MeetFarmersPage />} />
+            <Route path={VIEWFARMERPAGE} element={<ViewFarmerPage />} />
             <Route path={PROFILE} element={<ProfilePage />} />
           </Routes>
         </Router>

@@ -7,7 +7,7 @@ import { doc, getDoc } from "@firebase/firestore";
 import { Farmer } from "../types";
 import { HOME } from "../constants/routes";
 
-export default function FarmerInfoPage() {
+export default function ViewFarmerPage() {
   const navigate = useNavigate();
   
   const { farmerId } = useParams();

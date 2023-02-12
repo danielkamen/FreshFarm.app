@@ -21,29 +21,83 @@ export default function Example() {
   const cancelButtonRef = useRef(null)
 
   return (
-      <>
-        {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
-        {isOpen ?  <Transition.Root show={isOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setIsOpen}>
-            <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-            >
-              <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-            </Transition.Child>
-
+    <>
+      <div className="bflex min-h-full">
+        <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+          <div className="mx-auto w-full max-w-sm lg:w-96">
+            <div>
+              <img className="h-12 w-auto" src={logo} alt="Your Company" />
+              <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
+                Sign in to your account
+              </h2>
+              <p className="mt-2 text-sm text-gray-600">
+                Or{" "}
+                <a
+                  href="#"
+                  className="font-medium text-indigo-600 hover:text-indigo-500">
+                  start your 14-day free trial
+                </a>
+              </p>
+            </div>
+            <div className="mt-8">
+              <div className="mt-6">
+                <form
+                  id="login-form"
+                  className="space-y-6"
+                  onSubmit={async (event) => {
+                    event.preventDefault();
+                    try {
+                      const authUser = await signInWithEmailAndPassword(
+                        auth,
+                        email,
+                        password
+                      );
+                      setUser(authUser.user);
+                      navigate(HOME);
+                    } catch (e: any) {
+                      const err = (e as Error).message;
+                      console.log(err);
+                      if (
+                        err ===
+                        "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
+                      ) {
+                        setError({
+                          email: "",
+                          password:
+                            "Too many login attempts. Please try again later.",
+                        });
+                      } else {
+                        setError({
+                          email: "",
+                          password: "Email or password is incorrect.",
+                        });
+                      }
+                      console.error(e);
+                    }
+                  }}>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700">
+                      Email address
+                    </label>
+                    <div className="mt-1">
+                      <input
+                        id="email-login"
+                        name="email"
+                        autoComplete="email"
+                        required
+                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                      />
+                      {error.email !== "" && (
+                        <div className="mb-3 text-normal text-red-500 ">
+                          {error.email}
+                        </div>
+                      )}
+                    </div>
+                  </div>
             <div className="fixed inset-0 z-10 overflow-y-auto">
               <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                 <Transition.Child
