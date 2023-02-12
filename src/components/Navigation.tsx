@@ -58,26 +58,22 @@ export default function Navigation() {
         aria-hidden="true"
       />
       <div className="bg-[#F8F9F7] relative z-20">
-        <div className="mx-auto flex max-w-7xl items-center justify-between py-5 px-6 sm:py-4 md:justify-start md:space-x-10 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between py-5 px-4 md:justify-start md:space-x-10">
           {/** Logo and Company Name */}
           <div className="flex flex-1 mr-4">
             <div className="flex flex-row">
-              <Link to={HOME} className="flex">
+              <Link
+                to={HOME}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="flex flex-row text-lg font-medium text-gray-500 hover:text-gray-900">
                 <span className="sr-only">FreshFarm</span>
                 <div className="transform transition duration-300">
-                  <img className="h-8 w-8" src={logo} alt="" />
+                  <img className="min-h-6 min-w-6 w-8 h-8" src={logo} alt="" />
+                </div>
+                <div className="mx-2">
+                  <h1>FreshFarm</h1>
                 </div>
               </Link>
-              <div className="flex items-center justify-center mx-2">
-                <Link
-                  to={HOME}
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className="text-lg font-medium text-gray-500 hover:text-gray-900">
-                  <span className="truncate block">FreshFarm</span>
-                </Link>
-              </div>
             </div>
           </div>
           {/** Middle Section */}
@@ -266,8 +262,8 @@ export default function Navigation() {
             </div>
           </div>
           {/** Menu Button (Mobile only) */}
-          <div className="flex flex-1 -my-2 -mr-2 md:hidden">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-accent">
+          <div className="flex justify-end flex-1 -my-2 -mr-2 md:hidden">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-accent">
               <span className="sr-only">Open menu</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
@@ -288,7 +284,7 @@ export default function Navigation() {
           <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
             <div className="px-5 pt-5 pb-6 sm:pb-8">
               <div className="flex items-center justify-between">
-                <img className="h-8 w-8" src={logo} alt="FreshFarm" />
+                <img className="min-h-6 min-w-6 w-8 h-8" src={logo} alt="FreshFarm" />
                 <div className="-mr-2">
                   <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-accent">
                     <span className="sr-only">Close menu</span>

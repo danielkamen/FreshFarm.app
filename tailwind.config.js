@@ -30,6 +30,7 @@ module.exports = {
         "secondary-accent": "#FF4A00",
         tertiary: "#FFB800",
         "tertiary-accent": "#FFA500",
+        black: "#191919",
       },
     },
   },
