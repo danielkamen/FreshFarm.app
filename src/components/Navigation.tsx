@@ -284,7 +284,11 @@ export default function Navigation() {
           <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
             <div className="px-5 pt-5 pb-6 sm:pb-8">
               <div className="flex items-center justify-between">
-                <img className="min-h-6 min-w-6 w-8 h-8" src={logo} alt="FreshFarm" />
+                <img
+                  className="min-h-6 min-w-6 w-8 h-8"
+                  src={logo}
+                  alt="FreshFarm"
+                />
                 <div className="-mr-2">
                   <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-accent">
                     <span className="sr-only">Close menu</span>
@@ -313,21 +317,25 @@ export default function Navigation() {
               </div>
             </div>
             <div className="py-6 px-5">
-              <div className="mt-6">
+            {!user ? (
+              <>
+              <Link
+                to={SIGNUP}
+                className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-accent">
+                Sign up
+              </Link>
+              <p className="mt-6 text-center text-base font-medium text-gray-500">
+                Already have an account?{" "}
                 <Link
-                  to={SIGNUP}
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-accent">
-                  Sign up
+                  to={LOGIN}
+                  className="text-primary hover:text-primary-accent">
+                  Log In
                 </Link>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  Existing customer?{" "}
-                  <Link
-                    to={LOGIN}
-                    className="text-primary hover:text-primary-accent">
-                    Log In
-                  </Link>
-                </p>
-              </div>
+              </p>
+              </>
+            ) : (
+              <></>
+            ) }
             </div>
           </div>
         </Popover.Panel>

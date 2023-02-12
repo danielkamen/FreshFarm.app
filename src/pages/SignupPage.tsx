@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import logo from "./farmfreshnavlogo.gif";
-import { HOME } from "../constants/routes";
+import { HOME, LOGIN } from "../constants/routes";
 
 export default function Example() {
   const [error, setError] = useState({ email: "", password: "" });
@@ -19,10 +19,20 @@ export default function Example() {
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <img className="h-12 w-auto" src={logo} alt="Your Company" />
+              <Link to={HOME} className="w-12 block">
+                <img className="h-12 w-auto" src={logo} alt="Fresh Farm" />
+              </Link>
               <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
                 Sign up today!
               </h2>
+              <p className="mt-2 text-sm text-gray-600">
+                Or{" "}
+                <Link
+                  to={LOGIN}
+                  className="font-medium text-secondary hover:text-secondary-accent">
+                  log in now
+                </Link>
+              </p>
             </div>
 
             <div className="mt-8">
@@ -95,7 +105,7 @@ export default function Example() {
                         type="email"
                         autoComplete="email"
                         required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                       />
@@ -120,7 +130,7 @@ export default function Example() {
                         type="password"
                         autoComplete="current-password"
                         required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                       />
@@ -138,7 +148,7 @@ export default function Example() {
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        className="h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary"
                       />
                       <label
                         htmlFor="remember-me"
@@ -152,13 +162,13 @@ export default function Example() {
                         id="seller"
                         name="seller"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                        className="h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary"
                         onChange={(e) => setIsFarmer(e.target.checked)}
                       />
                       <label
                         htmlFor="seller"
                         className="ml-2 block text-sm text-gray-900">
-                        Farmer
+                        I am a Farmer
                       </label>
                     </div>
                   </div>
@@ -167,7 +177,7 @@ export default function Example() {
                     <button
                       type="submit"
                       form="signup-form"
-                      className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      className="flex w-full justify-center rounded-md border border-transparent bg-secondary py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-secondary-accent focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
                       Sign up
                     </button>
                   </div>

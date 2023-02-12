@@ -3,6 +3,7 @@ export const HOME = '/'
 export const LOGIN = '/login'
 export const SIGNUP = '/signup'
 export const PROFILE = '/profile'
+export const FORGETPASSWORDPAGE = '/forget-password'
 
 export const PRODUCEPAGE = '/produce'
 export const VIEWPRODUCEPAGE = '/produce/:produceId'
