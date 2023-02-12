@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "@firebase/auth";
 import { Menu, Popover, Transition } from "@headlessui/react";
 import {
@@ -50,7 +50,7 @@ const features = [
 
 export default function Navigation() {
   const { user } = useUserContext();
-  console.log(user);
+  let navigate = useNavigate();
   return (
     <Popover className="sticky bg-white z-10">
       <div
@@ -237,7 +237,10 @@ export default function Navigation() {
                               </a>
                             )}
                           </Menu.Item>
-                          <form onSubmit={() => signOut(auth)}>
+                          <form onSubmit={() => {
+                            signOut(auth);
+                            navigate(HOME);
+                            }}>
                             <Menu.Item>
                               {({ active }) => (
                                 <button
