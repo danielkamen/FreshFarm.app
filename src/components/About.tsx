@@ -94,7 +94,7 @@ export default function About() {
                     key={card.name}
                     className="flex gap-x-4 rounded-2xl bg-black/5 p-6 ring-1 ring-inset ring-white/10">
                   <card.icon
-                      className="h-7 w-5 flex-none text-indigo-400"
+                      className="h-7 w-5 flex-none text-tertiary-accent"
                       aria-hidden="true"
                   />
                   <div className="text-base leading-7">

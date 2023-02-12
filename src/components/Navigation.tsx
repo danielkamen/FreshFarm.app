@@ -170,7 +170,7 @@ export default function Navigation() {
                   </Link>
                   <Link
                     to={SIGNUP}
-                    className="truncate block ml-8 items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-accent">
+                    className="truncate block ml-8 items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm  hover:bg-primary-accent">
                     Sign up
                   </Link>
                 </>
