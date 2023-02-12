@@ -48,7 +48,7 @@ const features = [
 
 export default function Navigation() {
   const { user } = useUserContext();
-  const { searchTerm, setSearchTerm } = useSearchContext();
+  const { searchTerm, setSearchTerm, selectedCategory } = useSearchContext();
   let navigate = useNavigate();
 
   return (
@@ -99,11 +99,14 @@ export default function Navigation() {
                 </div>
                 <div className="bg-gray-100 flex flex-auto justify-between rounded-r-lg">
                   <form
+                    className="w-full"
                     onSubmit={(e) => {
                       e.preventDefault();
                       if (searchTerm) {
                         navigate(
-                          `${SEARCHRESULTPAGE}?searchTerm=${searchTerm}`
+                          `${SEARCHRESULTPAGE}?searchTerm=${searchTerm}${
+                            selectedCategory && `&category=${selectedCategory}`
+                          }`
                         );
                       } else {
                         navigate(0);
@@ -122,7 +125,11 @@ export default function Navigation() {
                 <button
                   onClick={() => {
                     if (searchTerm) {
-                      navigate(`${SEARCHRESULTPAGE}?searchTerm=${searchTerm}`);
+                      navigate(
+                        `${SEARCHRESULTPAGE}?searchTerm=${searchTerm}${
+                          selectedCategory && `&category=${selectedCategory}`
+                        }`
+                      );
                     } else {
                       navigate(0);
                     }
@@ -167,7 +174,7 @@ export default function Navigation() {
                       <Menu.Button
                         id="dropdownInformationButton"
                         data-dropdown-toggle="dropdownInformation"
-                          className="text-white bg-primary hover:bg-primary-accent font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
+                        className="text-white bg-primary hover:bg-primary-accent font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
                         "
                         type="button">
                         Account

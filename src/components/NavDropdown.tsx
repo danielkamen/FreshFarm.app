@@ -12,7 +12,7 @@ export default function NavDropDown() {
     <Listbox value={selectedCategory} onChange={setSelectedCategory}>
       {({ open }) => (
         <>
-          <div className="relative">
+          <div className="relative w-72">
             <Listbox.Button
               className={`relative w-full h-full cursor-pointer ${
                 open ? "bg-gray-200" : "bg-gray-100"
