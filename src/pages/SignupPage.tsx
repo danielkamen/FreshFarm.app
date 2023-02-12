@@ -28,7 +28,7 @@ export default function Example() {
             <div>
               <img
                 className="h-12 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src={logo}
                 alt="Your Company"
               />
               <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
@@ -174,8 +174,7 @@ export default function Example() {
         <div className="relative hidden w-0 flex-1 lg:block">
           <img
             className="absolute inset-0 h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
-            alt=""
+            src="https://img.freepik.com/premium-photo/happy-farmers-harvest-rice-together-with-sickles-during-day_8595-18204.jpg?w=1480"
           />
         </div>
       </div>

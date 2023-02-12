@@ -14,7 +14,7 @@ require('@tailwindcss/aspect-ratio'),
 ```
 */
 
-import { PRODUCTPAGE, MEETFARMERSPAGE } from "../constants/routes";
+import { PRODUCTPAGE, MEETFARMERSPAGE, SIGNUP } from "../constants/routes";
 
 type CalloutType = {
   name: string;
@@ -58,7 +58,7 @@ export default function Callout() {
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <h3 className="mt-6 text-xl text-black-500">
+                <h3 className="mt-6 text-3xl text-black-500">
                   <a href={callout.to}>
                     <span className="absolute inset-0" />
                     {callout.name}

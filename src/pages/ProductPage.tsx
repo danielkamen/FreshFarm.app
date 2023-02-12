@@ -63,7 +63,7 @@ const products = [
   },
   {
     id: 3,
-    name: "Brocollini",
+    name: "Broccollini",
     href: "#",
     imageSrc:
       "http://cdn.shopify.com/s/files/1/0206/9470/files/Pick_of_the_Week_-_Broccolini.jpg?v=1502173625",
