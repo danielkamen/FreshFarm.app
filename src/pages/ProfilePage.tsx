@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { collection, query, where, getDocs, setDoc, doc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import Navigation from '../components/Navigation';
 import { HOME } from '../constants/routes';
 import { useUserContext } from '../contexts/useUserContext';
@@ -16,8 +16,10 @@ export default function Example() {
   const [state, setState] = useState<string>('');
   const [zip, setZip] = useState<string>('');
 
-  const { user, isFarmer, collectionUID } = useUserContext();
- 
+  const [description, setDescription] = useState<string>('');
+  const [photo, setPhoto] = useState<string>('');
+
+  const { isFarmer, collectionUID } = useUserContext();
 
   return (
 
@@ -30,12 +32,15 @@ export default function Example() {
       onSubmit={async (e) => {
         e.preventDefault();
         try {
+          console.log(collectionUID);
           if (isFarmer) {
             await setDoc(doc(db, "sellers", collectionUID), {
               name: name,
               address: address + ', ' + city + ', ' + state + ' ' + zip,
               phone_number: phoneNumber,
-              updated_at: new Date()
+              updated_at: new Date(),
+              image_url: photo,
+              description: description
             }, { merge: true });
           } else {
             await setDoc(doc(db, "buyers", collectionUID), {
@@ -48,13 +53,14 @@ export default function Example() {
         } catch (e) {
           console.log(e);
           setError('Error updating profile. Please try again later.');
-        } finally {
           setName('');
           setPhoneNumber('');
           setAddress('');
           setCity('');
           setState('');
           setZip('');
+          setDescription('');
+          setPhoto('');
         }
       }}>
         <div className="bg-white px-4 py-5 shadow sm:rounded-lg sm:p-6">
@@ -66,23 +72,6 @@ export default function Example() {
               </p>
             </div>
             <div className="mt-5 space-y-6 md:col-span-2 md:mt-0">
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Photo</label>
-                <div className="mt-1 flex items-center space-x-5">
-                  <span className="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100">
-                    <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                  </span>
-                  <button
-                    type="button"
-                    className="rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  >
-                    Change
-                  </button>
-                </div>
-              </div>
-
               {isFarmer &&
                 <div>
                   <div>
@@ -97,6 +86,8 @@ export default function Example() {
                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         placeholder="you@example.com"
                         defaultValue={''}
+                        value={description}
+                        onChange={e => setDescription(e.target.value)}
                       />
                     </div>
                     <p className="mt-2 text-sm text-gray-500">Brief description for your profile.</p>
@@ -126,7 +117,17 @@ export default function Example() {
                             className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
-                            <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                            <input 
+                              id="file-upload" 
+                              name="file-upload" 
+                              type="file" 
+                              className="sr-only" 
+                              onChange={e => {
+                                if (e.target.files) {
+                                  setPhoto(URL.createObjectURL(e.target.files[0]));
+                                }}
+                              }/>
+                            {photo.length !== 0 && <img src={photo} alt='preview' />}
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>

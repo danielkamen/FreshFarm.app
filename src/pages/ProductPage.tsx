@@ -99,12 +99,12 @@ const products = [
   },
   {
     id: 3,
-    name: "Focus Paper Refill",
+    name: "Blueberries",
     href: "#",
     imageSrc:
       "https://extension.unh.edu/sites/default/files/styles/max_width_480px/public/migrated_images/blue-1326154_1280.jpg?itok=RA0CMEsN",
     imageAlt:
-      "Person using a pen to cross a task off a productivity paper card.",
+      "Basket of big beautiful blueberries",
   },
   {
     id: 4,
