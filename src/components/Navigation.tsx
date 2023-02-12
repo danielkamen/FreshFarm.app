@@ -9,7 +9,12 @@ import {
   ShieldCheckIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { ShoppingBagIcon } from "@heroicons/react/20/solid";
+import {
+  BuildingStorefrontIcon,
+  ShoppingBagIcon,
+  ShoppingCartIcon,
+  Squares2X2Icon,
+} from "@heroicons/react/20/solid";
 import {
   LOGIN,
   SIGNUP,
@@ -30,29 +35,29 @@ function classNames(...classes: any[]) {
 
 const features = [
   {
-    name: "View Farmers",
-    description: "Find local farmers",
-    to: MEETFARMERSPAGE,
-    icon: ChartBarIcon,
-  },
-  {
-    name: "View Produce",
+    name: "Browse Produce",
     description: "Find fresh produce near you",
     to: PRODUCEPAGE,
-    icon: CursorArrowRaysIcon,
+    icon: Squares2X2Icon,
+  },
+  {
+    name: "Meet Our Farmers",
+    description: "Find local farmers",
+    to: MEETFARMERSPAGE,
+    icon: BuildingStorefrontIcon,
   },
   {
     name: "Cart",
     description: "View your cart",
     to: CARTPAGE,
-    icon: ShieldCheckIcon,
+    icon: ShoppingCartIcon,
   },
 ];
 
 export default function Navigation() {
   const { user } = useUserContext();
   let navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <Popover className="sticky bg-white z-10">
@@ -100,17 +105,19 @@ export default function Navigation() {
                     />
                   </svg>
                 </div>
-                <form onSubmit={(e) => {
-                  e.preventDefault();
-                  if (searchTerm){
-                  navigate(SEARCHRESULTPAGE)}
-                }}>
-                <input
-                  className="flex bg-gray-100 outline-none border-transparent focus:ring-0 focus:border-transparent"
-                  type="text"
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  placeholder="Search produce"
-                />
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (searchTerm) {
+                      navigate(SEARCHRESULTPAGE);
+                    }
+                  }}>
+                  <input
+                    className="flex bg-gray-100 outline-none border-transparent focus:ring-0 focus:border-transparent"
+                    type="text"
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder="Search produce"
+                  />
                 </form>
                 <div className="flex px-4 items-center rounded-lg bg-gray-200 text-gray-500 font-semibold">
                   <Popover>
@@ -247,9 +254,10 @@ export default function Navigation() {
                               </a>
                             )}
                           </Menu.Item>
-                          <form onSubmit={() => {
-                            signOut(auth);
-                            navigate(HOME);
+                          <form
+                            onSubmit={() => {
+                              signOut(auth);
+                              navigate(HOME);
                             }}>
                             <Menu.Item>
                               {({ active }) => (
@@ -330,25 +338,25 @@ export default function Navigation() {
               </div>
             </div>
             <div className="py-6 px-5">
-            {!user ? (
-              <>
-              <Link
-                to={SIGNUP}
-                className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-accent">
-                Sign up
-              </Link>
-              <p className="mt-6 text-center text-base font-medium text-gray-500">
-                Already have an account?{" "}
-                <Link
-                  to={LOGIN}
-                  className="text-primary hover:text-primary-accent">
-                  Log In
-                </Link>
-              </p>
-              </>
-            ) : (
-              <></>
-            ) }
+              {!user ? (
+                <>
+                  <Link
+                    to={SIGNUP}
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-accent">
+                    Sign up
+                  </Link>
+                  <p className="mt-6 text-center text-base font-medium text-gray-500">
+                    Already have an account?{" "}
+                    <Link
+                      to={LOGIN}
+                      className="text-primary hover:text-primary-accent">
+                      Log In
+                    </Link>
+                  </p>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </Popover.Panel>
