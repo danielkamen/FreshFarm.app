@@ -1,18 +1,3 @@
-/*
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/typography'),
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
 import { useState } from 'react'
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/20/solid'
@@ -56,11 +41,7 @@ const product = {
   ],
 }
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ')
-// }
-
-export default function SingleProduct() {
+export default function SingleProduce() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
 
   return (

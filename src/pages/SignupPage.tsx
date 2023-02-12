@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
-import logo from "./farmfreshnavlogo.gif";
+import logo from "../images/freshfarmlogo.gif";
 import { HOME, PROFILE, LOGIN } from "../constants/routes";
 
 export default function Example() {

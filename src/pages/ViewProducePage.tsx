@@ -1,11 +1,20 @@
-import ProductList from "../components/ProductList";
-import SingleProduct from "../components/SingleProduct";
+import { useParams } from "react-router-dom";
+import SingleProduct from "../components/SingleProduce";
+import Navigation from "../components/Navigation";
 
 export default function ViewProducePage() {
+  const { produceId } = useParams();
+
   return (
     <div>
-      {/* {<SingleProduct />} */}
-      <ProductList />
+      <header>
+        <Navigation />
+      </header>
+      <div className=" py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SingleProduct />
+        </div>
+      </div>
     </div>
   );
 }
