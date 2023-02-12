@@ -80,7 +80,7 @@ export default function Navigation() {
           <Popover.Group
             as="nav"
             className="hidden lg:flex lg:flex-auto space-x-10">
-            <div className="flex w-full justify-center">
+            <div className="w-full">
               <div className="flex flex-row bg-gray-100 rounded-lg">
                 <div className="flex items-center pl-4">
                   <svg
@@ -105,28 +105,29 @@ export default function Navigation() {
                     } else {
                       navigate(0);
                     }
-                  }}>
+                  }}
+                  className="flex flex-auto">
                   <input
                     value={searchTerm}
-                    className="flex bg-gray-100 outline-none border-transparent focus:ring-0 focus:border-transparent"
+                    className="w-full bg-gray-100 outline-none border-transparent focus:ring-0 focus:border-transparent"
                     type="text"
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="Search produce"
                   />
                 </form>
                 <NavDropDown />
+                <button
+                  onClick={() => {
+                    if (searchTerm) {
+                      navigate(`${SEARCHRESULTPAGE}?searchTerm=${searchTerm}`);
+                    } else {
+                      navigate(0);
+                    }
+                  }}
+                  className="bg-primary ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center hover:bg-primary-accent">
+                  <span>Search</span>
+                </button>
               </div>
-              <button
-                onClick={() => {
-                  if (searchTerm) {
-                    navigate(`${SEARCHRESULTPAGE}?searchTerm=${searchTerm}`);
-                  } else {
-                    navigate(0);
-                  }
-                }}
-                className="bg-primary ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center hover:bg-primary-accent">
-                <span>Search</span>
-              </button>
             </div>
           </Popover.Group>
           <div className="flex flex-1 ml-4 justify-end">
