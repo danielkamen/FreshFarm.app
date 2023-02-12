@@ -63,7 +63,7 @@ export default function NavDropDown() {
                     className={({ active }) =>
                       `${
                         active ? "text-white bg-primary" : "text-gray-900"
-                      } relative cursor-default select-none py-2 pl-3 pr-9`
+                      } relative cursor-pointer select-none py-2 pl-3 pr-9`
                     }
                     value={Category.name}>
                     {({ selected, active }) => (
