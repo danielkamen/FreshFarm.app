@@ -91,12 +91,12 @@ export default function SingleProduce() {
               </Tab.Panels>
             </Tab.Group>
 
-            {/* Product info */}
+            {/* Produce info */}
             <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
               <h1 className="text-3xl font-bold tracking-tight text-gray-900">{product.name}</h1>
 
               <div className="mt-3">
-                <h2 className="sr-only">Product information</h2>
+                <h2 className="sr-only">Produce information</h2>
                 <p className="text-3xl tracking-tight text-gray-900">{product.price}</p>
               </div>
 

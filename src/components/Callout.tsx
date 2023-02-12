@@ -20,7 +20,6 @@ type CalloutType = {
   name: string;
   description: string;
   imageSrc: string;
-  imageAlt: string;
   to: string;
 };
 
@@ -30,8 +29,6 @@ const callouts: Array<CalloutType> = [
     description: "A variety of fresh produce, easily available to you",
     imageSrc:
       "https://www.gardenroute.gov.za/wp-content/uploads/2021/08/Fresh-produce-market.jpg",
-    imageAlt:
-      "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
     to: PRODUCEPAGE,
   },
   {
@@ -39,8 +36,6 @@ const callouts: Array<CalloutType> = [
     description: "Real farms growing real food, at a small cost to you",
     imageSrc:
       "https://ohiomagazine.imgix.net/sitefinity/images/default-source/articles/2021/july-august-2021/farms-slate-run-farm-sheep-credit-megan-leigh-barnard.jpg?sfvrsn=59d8a238_8&w=960&auto=compress%2Cformat",
-    imageAlt:
-      "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
     to: MEETFARMERSPAGE,
   },
   {
@@ -49,9 +44,7 @@ const callouts: Array<CalloutType> = [
       "Reduce food waste and sell your imperfect produce directly to clients",
     imageSrc:
       "https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/Sarah_Benoit_Delbecq_Indiana_1.jpg?crop=0%2C233%2C4000%2C2200&wid=4000&hei=2200&scl=1.0",
-    imageAlt:
-      "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
-    to: SIGNUP+'?isFarmer=true',
+    to: SIGNUP + "?isFarmer=true",
   },
 ];
 
@@ -66,7 +59,7 @@ export default function Callout() {
                 <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                   <img
                     src={callout.imageSrc}
-                    alt={callout.imageAlt}
+                    alt={callout.name}
                     className="h-full w-full object-cover object-center"
                   />
                 </div>

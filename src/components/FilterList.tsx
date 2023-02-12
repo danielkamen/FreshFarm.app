@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, PropsWithChildren, useEffect, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
@@ -8,6 +8,9 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
+import { db } from "../firebase";
+import { getDoc, doc } from "firebase/firestore";
+import { Category } from "../types";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -61,8 +64,34 @@ const filters = [
   },
 ];
 
-export default function FilterList() {
+type FilterListProps = {
+  title: string;
+  categoryId: string | null;
+};
+
+export default function FilterList({
+  title,
+  categoryId,
+  children,
+}: PropsWithChildren<FilterListProps>) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [category, setCategory] = useState<Category | null>(null);
+
+  useEffect(() => {
+    if (categoryId !== null) {
+      const fetchCategory = async () => {
+        const categoryDoc = doc(db, "categories", categoryId);
+        const querySnapshot = await getDoc(categoryDoc);
+
+        if (querySnapshot.exists()) {
+          setCategory(querySnapshot.data() as Category);
+        } else {
+          setCategory(null);
+        }
+      };
+      fetchCategory();
+    }
+  });
 
   return (
     <div className="bg-white">
@@ -184,9 +213,23 @@ export default function FilterList() {
         </Transition.Root>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pt-24 pb-6">
+          {category !== null && (
+            <div className="flex pb-12 rounded-lg justify-start">
+              <div>
+                <h2 className="text-center font-semibold text-xl py-4">
+                  {category.name}
+                </h2>
+                <img
+                src={category.image_url}
+                alt={category.name}
+                className="w-40 h-40 rounded-lg object-cover object-center group-hover:opacity-75"
+              />
+              </div>
+            </div>
+          )}
+          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-              New Arrivals
+              {title}
             </h1>
 
             <div className="flex items-center">
@@ -209,7 +252,7 @@ export default function FilterList() {
                   leave="transition ease-in duration-75"
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95">
-                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5">
                     <div className="py-1">
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
@@ -251,7 +294,7 @@ export default function FilterList() {
 
           <section aria-labelledby="products-heading" className="pt-6 pb-24">
             <h2 id="products-heading" className="sr-only">
-              Products
+              Produce
             </h2>
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
@@ -324,12 +367,8 @@ export default function FilterList() {
                 ))}
               </form>
 
-              {/* Product grid */}
-              <div className="lg:col-span-3">
-                {/* Replace with your content */}
-                <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 lg:h-full" />
-                {/* /End replace */}
-              </div>
+              {/* Produce grid */}
+              <div className="lg:col-span-3">{children}</div>
             </div>
           </section>
         </main>

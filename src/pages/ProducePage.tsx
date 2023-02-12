@@ -32,7 +32,7 @@ export default function ProducePage() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="items-center margin-auto w-8xl">
           <h2 className="text-center margin-auto w-8xl text-4xl font-bold tracking-tight text-black-400 sm:text-6xl py-6 pl-10xl pt-10">
-            Product Categories
+            Produce Categories
           </h2>
         </div>
         <div className="mx-auto max-w-2xl py-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8">

@@ -1,23 +1,24 @@
 import { db } from "../firebase";
 import { useEffect, useState } from "react";
 import { collection, getDoc, getDocs } from "@firebase/firestore";
-import { Product, ProductQuery, Category, Farmer } from "../types";
+import { Produce, ProduceQuery, Category, Farmer } from "../types";
 import Navigation from "../components/Navigation";
-import ProductList from "../components/ProduceList";
+import ProduceList from "../components/ProduceList";
 import { useSearchParams } from "react-router-dom";
+import FilterList from "../components/FilterList";
 
 export default function SearchResultPage() {
   const [searchParams] = useSearchParams();
 
-  const [products, setProducts] = useState<Array<Product>>([]);
+  const [produce, setProduce] = useState<Array<Produce>>([]);
   useEffect(() => {
-    setProducts([]);
+    setProduce([]);
     getDocs(collection(db, "products")).then((productArrayData) => {
       productArrayData.forEach((doc) => {
         const productRef = {
           id: doc.id,
           ...doc.data(),
-        } as ProductQuery;
+        } as ProduceQuery;
 
         getDoc<Category>(productRef.category_id).then((category) => {
           if (category.exists()) {
@@ -28,8 +29,8 @@ export default function SearchResultPage() {
                   ...doc.data(),
                   category: category.data() as Category,
                   seller: seller.data() as Farmer,
-                } as Product;
-                setProducts((prev) => [...prev, productData]);
+                } as Produce;
+                setProduce((prev) => [...prev, productData]);
               }
             });
           }
@@ -42,8 +43,12 @@ export default function SearchResultPage() {
     <div>
       <Navigation />
       <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <ProductList products={products} />
+        <div className="mx-auto px-6 lg:px-8">
+          <FilterList
+            categoryId={searchParams.get("category")}
+            title={"Browse Produce"}>
+            <ProduceList produce={produce} />
+          </FilterList>
         </div>
       </div>
     </div>

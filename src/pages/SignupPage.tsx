@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import logo from "../images/freshfarmlogo.gif";
 import { HOME, PROFILE, LOGIN } from "../constants/routes";
 
-export default function Example() {
+export default function SignupPage() {
   const [error, setError] = useState({ email: "", password: "" });
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -167,7 +170,7 @@ export default function Example() {
                         type="checkbox"
                         className="h-4 w-4 rounded border-gray-300 text-tertiary-accent focus:ring-tertiary-accent"
                         onChange={(e) => setIsFarmer(e.target.checked)}
-                        defaultChecked={searchParams.get("isFarmer") === 'true'}
+                        defaultChecked={searchParams.get("isFarmer") === "true"}
                       />
                       <label
                         htmlFor="seller"
