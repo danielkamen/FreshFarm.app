@@ -10,6 +10,7 @@ import EditProductPage from "../pages/EditProductPage";
 import MeetFarmersPage from "../pages/MeetFarmersPage";
 import FarmerInfoPage from "../pages/FarmerInfoPage";
 import LoginPage from "../pages/LoginPage";
+import ProfilePage from "../pages/ProfilePage";
 // VERIFYFARMER,
 import {
   HOME,
@@ -21,7 +22,7 @@ import {
   LEAVEREVIEWPAGE,
   EDITPRODUCTPAGE,
   MEETFARMERSPAGE,
-  VIEWFARMERPAGE,
+  PROFILE,
 } from "../constants/routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useUserContext } from "../contexts/useUserContext";
@@ -35,7 +36,6 @@ export const RouteProvider = () => {
       {isLoaded ? (
         <Router>
           <Routes>
-            {}
             <Route path={HOME} element={<HomePage />} />
             <Route path={LOGIN} element={<LoginPage />} />
             <Route path={SIGNUP} element={<SignupPage />} />
@@ -45,7 +45,7 @@ export const RouteProvider = () => {
             <Route path={CARTPAGE} element={<CartPage />} />
             <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
             <Route path={MEETFARMERSPAGE} element={<MeetFarmersPage />} />
-             <Route path={VIEWFARMERPAGE} element={<FarmerInfoPage />} />
+            <Route path={PROFILE} element={<ProfilePage />} />
           </Routes>
         </Router>
       ) : null}

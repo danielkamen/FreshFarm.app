@@ -3,6 +3,7 @@ export const HOME = '/'
 // is the same for farmer and buyer
 export const LOGIN = '/login'
 export const SIGNUP = '/signup'
+export const PROFILE = '/profile'
 
 // goes to page with all produce
 export const PRODUCTPAGE = '/produce'

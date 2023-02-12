@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore"; 
 import { auth, db } from "../firebase";
-import { PRODUCTPAGE } from '../constants/routes'
+import { HOME } from '../constants/routes'
 
 export default function Example() {
   const [error, setError] = useState({email: '', password: ''});
@@ -69,7 +69,7 @@ export default function Example() {
                         user_id: user.uid,
                         isFarmer: isFarmer
                       });
-                      navigate(PRODUCTPAGE)
+                      navigate(HOME)
                     } catch (e: any) {
                       const err = (e as Error).message;
                       if (err === 'Firebase: Error (auth/email-already-in-use).') {
