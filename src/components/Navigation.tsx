@@ -60,7 +60,7 @@ export default function Navigation() {
       <div className="bg-[#F8F9F7] relative z-20">
         <div className="mx-auto flex max-w-full items-center justify-between py-5 px-4 xl:px-8 md:justify-start md:space-x-10">
           {/** Logo and Company Name */}
-          <div className="flex flex-1 mr-4">
+          <div className="flex flex-auto md:flex-1 mr-4">
             <div className="flex flex-row">
               <Link
                 to={HOME}
