@@ -10,7 +10,7 @@ import { Category } from "../types";
 
 
 
-export default function ProductPage() {
+export default function ProducePage() {
    const [categories, setCategories] = useState<Array<Category>>([]);
   useEffect(() => {
     const fetchCategories = async () => {
