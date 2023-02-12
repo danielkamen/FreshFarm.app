@@ -129,7 +129,7 @@ export default function LoginPage() {
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary-accent"
+                        className="h-4 w-4 rounded border-gray-300 text-tertiary-accent focus:ring-tertiary-accent"
                       />
                       <label
                         htmlFor="remember-me"
@@ -157,7 +157,7 @@ export default function LoginPage() {
                     <button
                       type="submit"
                       form="login-form"
-                      className="flex w-full justify-center rounded-md border border-transparent bg-secondary py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-secondary-accent focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
+                      className="flex w-full justify-center rounded-md border border-transparent bg-tertiary-accent py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
                       Sign in
                     </button>
                   </div>

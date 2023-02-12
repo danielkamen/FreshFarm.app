@@ -29,7 +29,7 @@ export default function Example() {
                 Or{" "}
                 <Link
                   to={LOGIN}
-                  className="font-medium text-secondary hover:text-secondary-accent">
+                  className="font-medium text-tertiary-accent hover:text-secondary">
                   log in now
                 </Link>
               </p>
@@ -148,7 +148,7 @@ export default function Example() {
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary"
+                        className="h-4 w-4 rounded border-gray-300 text-tertiary-accent focus:ring-tertiary-accent"
                       />
                       <label
                         htmlFor="remember-me"
@@ -162,7 +162,7 @@ export default function Example() {
                         id="seller"
                         name="seller"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary"
+                        className="h-4 w-4 rounded border-gray-300 text-tertiary-accent focus:ring-tertiary-accent"
                         onChange={(e) => setIsFarmer(e.target.checked)}
                       />
                       <label
