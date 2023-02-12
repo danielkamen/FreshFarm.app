@@ -52,6 +52,10 @@ export default function MeetFarmersPage() {
                     <img
                       className="aspect-[3/2] w-full rounded-2xl object-cover"
                       src={farmer.image_url}
+                      onError={(e) => {
+                        e.currentTarget.src =
+                          "https://media.istockphoto.com/id/1288129985/vector/missing-image-of-a-person-placeholder.jpg?s=612x612&w=0&k=20&c=9kE777krx5mrFHsxx02v60ideRWvIgI1RWzR1X4MG2Y=";
+                      }}
                       alt="not loaded"
                     />
                     <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">

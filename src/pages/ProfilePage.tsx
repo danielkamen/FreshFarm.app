@@ -62,9 +62,9 @@ export default function ProfilePage() {
                   { profile_url: profilePicture },
                   { merge: true }
                 );
-                setStatus("Saved profile.");
+                setStatus("success");
               } catch (e) {
-                setStatus("Error updating profile. Please try again later.");
+                setStatus("failed");
               } finally {
                 setName("");
                 setPhoneNumber("");
@@ -276,7 +276,14 @@ export default function ProfilePage() {
             </div>
             <div className="items-center">
               {status !== "-1" && (
-                <div className="ml-5 text-normal text-red-500 ">{status}</div>
+                <div
+                  className={`ml-5 text-normal ${
+                    status === "failed" ? "text-red-500" : "text-primary"
+                  }`}>
+                  {status === "success"
+                    ? "Profile saved."
+                    : "Error updating profile. Please try again later."}
+                </div>
               )}
               <div className="flex justify-end">
                 <button

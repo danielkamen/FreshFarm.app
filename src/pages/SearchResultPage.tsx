@@ -4,8 +4,11 @@ import { collection, getDoc, getDocs } from "@firebase/firestore";
 import { Product, ProductQuery, Category, Farmer } from "../types";
 import Navigation from "../components/Navigation";
 import ProductList from "../components/ProduceList";
+import { useSearchParams } from "react-router-dom";
 
 export default function SearchResultPage() {
+  const [searchParams] = useSearchParams();
+
   const [products, setProducts] = useState<Array<Product>>([]);
   useEffect(() => {
     setProducts([]);

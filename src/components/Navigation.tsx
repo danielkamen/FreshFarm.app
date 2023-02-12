@@ -2,13 +2,7 @@ import { Fragment, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "@firebase/auth";
 import { Menu, Popover, Transition } from "@headlessui/react";
-import {
-  Bars3Icon,
-  ChartBarIcon,
-  CursorArrowRaysIcon,
-  ShieldCheckIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
   BuildingStorefrontIcon,
   ShoppingBagIcon,
@@ -27,11 +21,7 @@ import {
 } from "../constants/routes";
 import { auth } from "../firebase";
 import { useUserContext } from "../contexts/useUserContext";
-import logo from "./farmfreshnavlogo.gif";
-
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(" ");
-}
+import logo from "../images/freshfarmlogo.gif";
 
 const features = [
   {
@@ -243,14 +233,14 @@ export default function Navigation() {
                             {({ active }) => (
                               <a
                                 href={PROFILE}
-                                className={classNames(
-                                  active
-                                    ? "bg-gray-100 text-gray-900"
-                                    : "text-gray-700",
-                                  "block px-4 py-2 text-sm"
-                                )}>
+                                className={`
+                                  ${
+                                    active
+                                      ? "bg-gray-100 text-gray-900"
+                                      : "text-gray-700"
+                                  } block px-4 py-2 text-sm`}>
                                 <Link to={PROFILE} />
-                                View Profile
+                                Manage Profile
                               </a>
                             )}
                           </Menu.Item>
@@ -263,13 +253,13 @@ export default function Navigation() {
                               {({ active }) => (
                                 <button
                                   type="submit"
-                                  className={classNames(
-                                    active
-                                      ? "bg-gray-100 text-gray-900"
-                                      : "text-gray-700",
-                                    "block w-full px-4 py-2 text-left text-sm"
-                                  )}>
-                                  Sign out
+                                  className={`
+                                    ${
+                                      active
+                                        ? "bg-gray-100 text-gray-900"
+                                        : "text-gray-700"
+                                    } block w-full px-4 py-2 text-left text-sm`}>
+                                  Sign Out
                                 </button>
                               )}
                             </Menu.Item>

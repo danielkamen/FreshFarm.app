@@ -5,7 +5,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { auth } from "../firebase";
 import { HOME, SIGNUP } from "../constants/routes";
 import { useUserContext } from "../contexts/useUserContext";
-import logo from "./farmfreshnavlogo.gif";
+import logo from "../images/freshfarmlogo.gif";
 
 export default function LoginPage() {
   let navigate = useNavigate();
