@@ -80,10 +80,8 @@ export default function About() {
 
       <div className="bg-white rounded-2xl mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-4xl font-bold tracking-tight text-black-400 sm:text-6xl py-6">
-            <span className=" font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-lime-400 to-green-600">Fresh Farm</span>
-        
-          </h2>
+          <h1 className="animate-text font-extrabold text-8xl bg-clip-text bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 text-transparent font-black subpixel-antialiased">FreshFarm</h1>
+
           <p className="flex gap-x-4 rounded-2xl bg-black/5 p-6 ring-1 ring-inset ring-white/10 ">
             FreshFarm connects local farmers with buyers in the area, providing
             access to affordable, sustainable, and fresh produce that might
@@ -99,12 +97,12 @@ export default function About() {
               className="flex gap-x-4 rounded-2xl bg-black/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <card.icon
-                className="h-7 w-5 flex-none text-primary-accent"
+                className="h-7 w-5 flex-grid text-primary-accent"
                 aria-hidden="true"
               />
               <div className="text-base leading-7">
-                <h3 className="font-semibold text-black">{card.name}</h3>
-                <p className="mt-2 text-black-300">{card.description}</p>
+                <h3 className="font-black text-black">{card.name}</h3>
+                <p className="mt-2 text-black-300 antialiased">{card.description}</p>
               </div>
             </div>
           ))}
