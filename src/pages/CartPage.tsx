@@ -657,11 +657,11 @@ export default function CartPage() {
               </div>
             </div>
 
-          <div className="border-t border-gray-100 py-10 text-center">
-            <p className="text-sm text-gray-500">&copy; Fresh Foods</p>
+            {/*<div className="border-t border-gray-100 py-10 text-center">*/}
+            {/*  <p className="text-sm text-gray-500">&copy; Fresh Foods</p>*/}
+            {/*</div>*/}
           </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
   );
 }

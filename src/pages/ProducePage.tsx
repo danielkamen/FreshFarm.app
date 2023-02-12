@@ -43,7 +43,7 @@ export default function ProducePage() {
                   className="h-full w-full object-cover object-center group-hover:opacity-75"
                 />
               </div>
-              <h3 className="mt-4 text-sm text-gray-700">{category.name}</h3>
+              <h3 className="mt-4 text-lg text-gray-700">{category.name}</h3>
             </Link>
           ))}
         </div>
