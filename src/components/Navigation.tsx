@@ -13,7 +13,7 @@ import { ShoppingBagIcon } from "@heroicons/react/20/solid";
 import {
   LOGIN,
   SIGNUP,
-  PRODUCTPAGE,
+  PRODUCEPAGE,
   CARTPAGE,
   HOME,
   MEETFARMERSPAGE,
@@ -37,7 +37,7 @@ const features = [
   {
     name: "View Produce",
     description: "Find fresh produce near you",
-    to: PRODUCTPAGE,
+    to: PRODUCEPAGE,
     icon: CursorArrowRaysIcon,
   },
   {

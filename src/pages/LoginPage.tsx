@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { HOME, PRODUCTPAGE } from "../constants/routes";
+import { HOME } from "../constants/routes";
 import { useUserContext } from "../contexts/useUserContext";
 import logo from "./farmfreshnavlogo.gif";
 
@@ -15,23 +15,11 @@ export default function Example() {
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
       <div className="bflex min-h-full">
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <img
-                className="h-12 w-auto"
-                src={logo}
-                alt="Your Company"
-              />
+              <img className="h-12 w-auto" src={logo} alt="Your Company" />
               <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
                 Sign in to your account
               </h2>
