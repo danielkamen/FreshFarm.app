@@ -27,7 +27,7 @@ export default function LoginPage() {
                 <img className="h-12 w-auto" src={logo} alt="FreshFarm" />
               </Link>
               <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
-                Sign in to your account
+                <span className="animate-text font-extrabold text3xl bg-clip-text bg-gradient-to-r from-lime-300 via-lime-600 to-green-800 text-transparent font-black">   Sign in to your account</span>
               </h2>
               <p className="mt-2 text-sm text-gray-600">
                 Or{" "}

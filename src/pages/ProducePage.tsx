@@ -12,8 +12,8 @@ export default function ProducePage() {
         <Navigation />
       </header>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="items-center margin-auto w-8xl">
-          <h2 className="text-center margin-auto w-8xl text-4xl font-bold tracking-tight text-black-400 sm:text-6xl py-6 pl-10xl pt-10">
+        <div className="items-center margin-auto w-8xl h-full">
+          <h2 className="text-center animate-text xl:text-8xl lg:text-6xl sm: text-5xl font-extrabold h-32 bg-clip-text bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 text-transparent font-black subpixel-antialiased">
             Produce Categories
           </h2>
         </div>

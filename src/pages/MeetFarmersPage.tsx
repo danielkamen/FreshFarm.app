@@ -32,8 +32,8 @@ export default function MeetFarmersPage() {
       <Navigation />
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <div className="mx-auto max-h-8xl max-w-2xl lg:mx-0">
+            <h2 className="text-8xl tracking-tight animate-text font-extrabold bg-clip-text bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 text-transparent font-black ">
               Our Farmers
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">

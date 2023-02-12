@@ -25,7 +25,7 @@ export default function SignupPage() {
               <Link to={HOME} className="w-12 block">
                 <img className="h-12 w-auto" src={logo} alt="Fresh Farm" />
               </Link>
-              <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
+              <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900 animate-text font-extrabold text-4xl bg-clip-text bg-gradient-to-r from-lime-300 via-lime-600 to-green-800 text-transparent font-black">
                 Sign up today!
               </h2>
               <p className="mt-2 text-sm text-gray-600">
