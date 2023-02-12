@@ -1,16 +1,12 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { ChevronDownIcon, Squares2X2Icon } from "@heroicons/react/20/solid";
-import { Category } from "../types";
 import { useCategoryContext } from "../contexts/useCategoryContext";
+import { useSearchContext } from "../contexts/useSearchContext";
 
 export default function NavDropDown() {
   const { categories } = useCategoryContext();
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
-    null
-  );
-
-  console.log(selectedCategory);
+  const { selectedCategory, setSelectedCategory } = useSearchContext();
 
   return (
     <Listbox value={selectedCategory} onChange={setSelectedCategory}>
