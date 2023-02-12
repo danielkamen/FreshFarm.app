@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { setDoc, doc } from "firebase/firestore";
 import Navigation from '../components/Navigation';
@@ -19,8 +19,24 @@ export default function Example() {
   const [description, setDescription] = useState<string>('');
   const [photo, setPhoto] = useState<string>('');
 
-  const { isFarmer, collectionUID } = useUserContext();
+  const { isFarmer, collectionUID, collectionUser } = useUserContext();
 
+  const { defaultAddress, defaultCity, defaultState, defaultZip } = useMemo(() => {
+    const location = collectionUser?.address.split(', ');
+    if (!location) return '';
+    if (location.length === 4) {
+      return location[0], location[1], location[2], location[3];
+    } else if (location.length === 3) {
+      return location[0], location[1], location[2];
+    } else if (location.length === 2) {
+      return location[0], location[1];
+    } else if (location.length === 1) {
+      return location[0];
+    } else {
+      return '';
+    }
+  }, [collectionUser])
+  
   return (
 
     <div>
@@ -32,7 +48,6 @@ export default function Example() {
       onSubmit={async (e) => {
         e.preventDefault();
         try {
-          console.log(collectionUID);
           if (isFarmer) {
             await setDoc(doc(db, "sellers", collectionUID), {
               name: name,
@@ -84,8 +99,7 @@ export default function Example() {
                         name="about"
                         rows={3}
                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                        placeholder="you@example.com"
-                        defaultValue={''}
+                        placeholder={collectionUser?.description}
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                       />
@@ -127,7 +141,7 @@ export default function Example() {
                                   setPhoto(URL.createObjectURL(e.target.files[0]));
                                 }}
                               }/>
-                            {photo.length !== 0 && <img src={photo} alt='preview' />}
+                            {photo.length !== 0 && <img placeholder={collectionUser?.image_url} src={photo} alt='preview' />}
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>
@@ -158,6 +172,7 @@ export default function Example() {
                     id="name"
                     autoComplete="given-name"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    placeholder={collectionUser?.name}
                     value={name}
                     onChange={(e) => {
                       setName(e.target.value);
@@ -175,6 +190,7 @@ export default function Example() {
                     id="phone-number"
                     autoComplete="phone-number"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    placeholder={collectionUser?.phone_number}
                     value={phoneNumber}
                     onChange={(e) => {
                       setPhoneNumber(e.target.value);
@@ -192,6 +208,7 @@ export default function Example() {
                     id="street-address"
                     autoComplete="street-address"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    placeholder={defaultAddress}
                     value={address}
                     onChange={(e) => {
                       setAddress(e.target.value);
@@ -209,6 +226,7 @@ export default function Example() {
                     id="city"
                     autoComplete="address-level2"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    placeholder={defaultCity}
                     value={city}
                     onChange={(e) => {
                       setCity(e.target.value);
@@ -226,6 +244,7 @@ export default function Example() {
                     id="region"
                     autoComplete="address-level1"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    placeholder={defaultState}
                     value={state}
                     onChange={(e) => {
                       setState(e.target.value);
@@ -243,6 +262,7 @@ export default function Example() {
                     id="postal-code"
                     autoComplete="postal-code"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    placeholder={defaultZip}
                     value={zip}
                     onChange={(e) => {
                       setZip(e.target.value);
