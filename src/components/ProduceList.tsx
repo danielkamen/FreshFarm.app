@@ -1,6 +1,7 @@
 import {
   ChevronRightIcon,
   CurrencyDollarIcon,
+  StarIcon,
 } from "@heroicons/react/20/solid";
 
 import { Link } from "react-router-dom";
@@ -37,19 +38,6 @@ export default function ProduceList({ produce }: { produce: Array<Produce> }) {
                         />
                         <span className="truncate">{produce.price}</span>
                       </p>
-                    </div>
-                    <div className="hidden md:block">
-                      <div>
-                        <p className="text-sm text-gray-900">
-                          Harvested on{" "}
-                          <time
-                            dateTime={produce.picked_on
-                              .toDate()
-                              .toDateString()
-                              .toString()}
-                          />
-                        </p>
-                      </div>
                     </div>
                   </div>
                 </div>

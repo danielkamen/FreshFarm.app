@@ -55,7 +55,6 @@ export default function LoginPage() {
                       navigate(HOME);
                     } catch (e: any) {
                       const err = (e as Error).message;
-                      console.log(err);
                       if (
                         err ===
                         "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."

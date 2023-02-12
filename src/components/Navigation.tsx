@@ -48,7 +48,7 @@ const features = [
 
 export default function Navigation() {
   const { user } = useUserContext();
-  const { searchTerm, setSearchTerm } = useSearchContext();
+  const { searchTerm, setSearchTerm, selectedCategory } = useSearchContext();
   let navigate = useNavigate();
 
   return (
@@ -71,7 +71,7 @@ export default function Navigation() {
                   <img className="min-h-6 min-w-6 w-8 h-8" src={logo} alt="" />
                 </div>
                 <div className="mx-2">
-                  <h1>Fresh Farm</h1>
+                  <h1 className="block truncate">Fresh Farm</h1>
                 </div>
               </Link>
             </div>
@@ -80,9 +80,9 @@ export default function Navigation() {
           <Popover.Group
             as="nav"
             className="hidden lg:flex lg:flex-auto space-x-10">
-            <div className="w-full">
-              <div className="flex flex-row bg-gray-100 rounded-lg">
-                <div className="flex items-center pl-4">
+            <div className="block w-full">
+              <div className="flex flex-row rounded-lg">
+                <div className="bg-gray-100 flex items-center pl-4 rounded-l-lg">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 opacity-30"
@@ -97,29 +97,39 @@ export default function Navigation() {
                     />
                   </svg>
                 </div>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    if (searchTerm) {
-                      navigate(`${SEARCHRESULTPAGE}?searchTerm=${searchTerm}`);
-                    } else {
-                      navigate(0);
-                    }
-                  }}
-                  className="flex flex-auto">
-                  <input
-                    value={searchTerm}
-                    className="w-full bg-gray-100 outline-none border-transparent focus:ring-0 focus:border-transparent"
-                    type="text"
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="Search produce"
-                  />
-                </form>
-                <NavDropDown />
+                <div className="bg-gray-100 flex flex-auto justify-between rounded-r-lg">
+                  <form
+                    className="w-full"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      if (searchTerm) {
+                        navigate(
+                          `${SEARCHRESULTPAGE}?searchTerm=${searchTerm}${
+                            selectedCategory && `&category=${selectedCategory}`
+                          }`
+                        );
+                      } else {
+                        navigate(0);
+                      }
+                    }}>
+                    <input
+                      value={searchTerm}
+                      className="w-full bg-gray-100 outline-none border-transparent focus:ring-0 focus:border-transparent"
+                      type="text"
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      placeholder="Search produce"
+                    />
+                  </form>
+                  <NavDropDown />
+                </div>
                 <button
                   onClick={() => {
                     if (searchTerm) {
-                      navigate(`${SEARCHRESULTPAGE}?searchTerm=${searchTerm}`);
+                      navigate(
+                        `${SEARCHRESULTPAGE}?searchTerm=${searchTerm}${
+                          selectedCategory && `&category=${selectedCategory}`
+                        }`
+                      );
                     } else {
                       navigate(0);
                     }
@@ -164,7 +174,7 @@ export default function Navigation() {
                       <Menu.Button
                         id="dropdownInformationButton"
                         data-dropdown-toggle="dropdownInformation"
-                          className="text-white bg-primary hover:bg-primary-accent font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
+                        className="text-white bg-primary hover:bg-primary-accent font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
                         "
                         type="button">
                         Account
