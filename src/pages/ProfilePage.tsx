@@ -22,7 +22,7 @@ export default function Example() {
   const { isFarmer, collectionUID, collectionUser } = useUserContext();
 
   const { defaultAddress, defaultCity, defaultState, defaultZip } = useMemo(() => {
-    const location = collectionUser?.address.split(', ');
+    const location = collectionUser?.address?.split(', ');
     if (!location) return '';
     if (location.length === 4) {
       return location[0], location[1], location[2], location[3];
