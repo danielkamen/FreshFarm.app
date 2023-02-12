@@ -7,10 +7,9 @@ import { HOME, SIGNUP } from "../constants/routes";
 import { useUserContext } from "../contexts/useUserContext";
 import logo from "./farmfreshnavlogo.gif";
 
-export default function Example() {
+export default function LoginPage() {
   let navigate = useNavigate();
   const { setUser } = useUserContext();
-
   const [error, setError] = useState({ email: "", password: "" });
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
