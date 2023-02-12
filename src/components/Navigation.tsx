@@ -154,7 +154,7 @@ export default function Navigation() {
                   </Popover>
                 </div>
               </div>
-              <div className="bg-primary ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center">
+              <div className="bg-tertiary-accent ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center hover:bg-secondary">
                 <span>Search</span>
               </div>
             </div>

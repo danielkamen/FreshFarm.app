@@ -29,7 +29,7 @@ export default function Example() {
                 Or{" "}
                 <Link
                   to={SIGNUP}
-                  className="font-medium text-secondary hover:text-secondary-accent">
+                  className="font-medium text-tertiary-accent hover:text-secondary">
                   sign up now
                 </Link>
               </p>
