@@ -1,29 +1,11 @@
 import Navigation from "../components/Navigation";
-import { SEARCHRESULTPAGE, VIEWPRODUCEPAGE } from "../constants/routes";
+import { SEARCHRESULTPAGE } from "../constants/routes";
 import { Link } from "react-router-dom";
-
-import { db } from "../firebase";
-import { useEffect, useState } from "react";
-import { collection, getDocs } from "@firebase/firestore";
-import { Category } from "../types";
+import { useCategoryContext } from "../contexts/useCategoryContext";
 
 export default function ProducePage() {
-  const [categories, setCategories] = useState<Array<Category>>([]);
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const categoriesData = await getDocs(collection(db, "categories"));
-      let categoriesArray: Array<Category> = [];
-      categoriesData.forEach((doc) => {
-        const categoriesData = {
-          id: doc.id,
-          ...doc.data(),
-        } as Category;
-        categoriesArray.push(categoriesData);
-      });
-      setCategories(categoriesArray);
-    };
-    fetchCategories();
-  }, []);
+  const { categories } = useCategoryContext();
+
   return (
     <div className="bg-white">
       <header>

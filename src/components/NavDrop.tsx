@@ -1,34 +1,16 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import {
   CheckIcon,
   ChevronUpDownIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import { Category, Produce, ProduceQuery } from "../types";
-import { getDocs, collection } from "@firebase/firestore";
-import { db } from "../firebase";
+import { Category } from "../types";
+import { useCategoryContext } from "../contexts/useCategoryContext";
 
 export default function NavDropDown() {
   const [selected, setSelected] = useState<Category | null>(null);
-
-  const [categories, setCategory] = useState<Array<Category>>([]);
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const categoryArrayData = await getDocs(collection(db, "categories"));
-      let categoryArray: Array<Category> = [];
-      categoryArrayData.forEach(async (doc) => {
-        let categoryData = {
-          id: doc.id,
-          ...doc.data(),
-        } as Category;
-        categoryArray.push(categoryData);
-      });
-
-      setCategory(categoryArray);
-    };
-    fetchCategories();
-  }, []);
+  const { categories } = useCategoryContext();
 
   return (
     <Listbox
