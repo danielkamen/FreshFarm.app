@@ -149,7 +149,7 @@ export default function Navigation() {
                     to={CARTPAGE}
                     className="group flex items-center p-2 mx-2">
                     <ShoppingBagIcon
-                      className="h-6 w-6 flex-shrink-0 text-primary-accent group-hover:text-primary"
+                      className="h-6 w-6 flex-shrink-0 text-primary group-hover:text-primary"
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-primary group-hover:text-primary-accent">
@@ -162,7 +162,7 @@ export default function Navigation() {
                       <Menu.Button
                         id="dropdownInformationButton"
                         data-dropdown-toggle="dropdownInformation"
-                        className="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary"
+                        className="text-white bg-primary hover:bg-primary-accent font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
                         type="button">
                         Account
                         <svg
