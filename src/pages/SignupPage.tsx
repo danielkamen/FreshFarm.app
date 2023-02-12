@@ -167,7 +167,7 @@ export default function Example() {
                         type="checkbox"
                         className="h-4 w-4 rounded border-gray-300 text-tertiary-accent focus:ring-tertiary-accent"
                         onChange={(e) => setIsFarmer(e.target.checked)}
-                        checked={searchParams.get("isFarmer") === 'true'}
+                        defaultChecked={searchParams.get("isFarmer") === 'true'}
                       />
                       <label
                         htmlFor="seller"
