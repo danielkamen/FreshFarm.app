@@ -22,7 +22,6 @@ export type Produce = {
   id: string;
   name: string;
   image_url: string;
-  image_alt: "Not available";
   price: number;
   quantity: number;
   category: Category;
@@ -34,7 +33,6 @@ export type ProduceQuery = {
   id: string;
   name: string;
   image_url: string;
-  image_alt: "Not available";
   price: number;
   quantity: number;
   category_id: DocumentReference<Category>;

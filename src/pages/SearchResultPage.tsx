@@ -13,28 +13,28 @@ export default function SearchResultPage() {
   const [produce, setProduce] = useState<Array<Produce>>([]);
   useEffect(() => {
     setProduce([]);
-    getDocs(collection(db, "products")).then((productArrayData) => {
-      productArrayData.forEach((doc) => {
-        const productRef = {
-          id: doc.id,
-          ...doc.data(),
-        } as ProduceQuery;
+    getDocs(collection(db, "products")).then((produceArrayData) => {
+      produceArrayData.forEach(async (doc) => {
+        if (doc.exists()) {
+          const produceRef = {
+            id: doc.id,
+            ...doc.data(),
+          } as ProduceQuery;
 
-        getDoc<Category>(productRef.category_id).then((category) => {
-          if (category.exists()) {
-            getDoc<Farmer>(productRef.seller_id).then((seller) => {
-              if (seller.exists()) {
-                let productData = {
-                  id: doc.id,
-                  ...doc.data(),
-                  category: category.data() as Category,
-                  seller: seller.data() as Farmer,
-                } as Produce;
-                setProduce((prev) => [...prev, productData]);
-              }
-            });
+          const categoryRef = await getDoc(produceRef.category_id);
+          if (categoryRef.exists()) {
+            const sellerRef = await getDoc(produceRef.seller_id);
+            if (sellerRef.exists()) {
+              const produceData = {
+                id: doc.id,
+                ...doc.data(),
+                category: categoryRef.data() as Category,
+                seller: sellerRef.data() as Farmer,
+              } as Produce;
+              setProduce((prev) => [...prev, produceData]);
+            }
           }
-        });
+        }
       });
     });
   }, []);

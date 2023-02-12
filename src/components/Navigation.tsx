@@ -22,7 +22,8 @@ import {
 import { auth } from "../firebase";
 import { useUserContext } from "../contexts/useUserContext";
 import logo from "../images/freshfarmlogo.gif";
-import NavDropDown from "./NavDrop";
+import NavDropDown from "./NavDropdown";
+import { useSearchContext } from "../contexts/useSearchContext";
 
 const features = [
   {
@@ -47,8 +48,8 @@ const features = [
 
 export default function Navigation() {
   const { user } = useUserContext();
+  const { searchTerm, setSearchTerm } = useSearchContext();
   let navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <Popover className="sticky bg-white z-10">
@@ -89,9 +90,9 @@ export default function Navigation() {
                     viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                     />
                   </svg>
@@ -106,13 +107,13 @@ export default function Navigation() {
                     }
                   }}>
                   <input
+                    value={searchTerm}
                     className="flex bg-gray-100 outline-none border-transparent focus:ring-0 focus:border-transparent"
                     type="text"
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="Search produce"
                   />
                 </form>
-
                 <NavDropDown />
               </div>
               <button
@@ -173,9 +174,9 @@ export default function Navigation() {
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg">
                           <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M19 9l-7 7-7-7"></path>
                         </svg>
                       </Menu.Button>
