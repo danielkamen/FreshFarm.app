@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore"; 
 import { auth, db } from "../firebase";
-import { HOME } from '../constants/routes'
-import logo from "../components/farmfreshnavlogo.gif";
+import logo from "./farmfreshnavlogo.gif";
+import { HOME } from "../constants/routes"
 
 export default function Example() {
   const [error, setError] = useState({email: '', password: ''});
@@ -23,7 +23,7 @@ export default function Example() {
         <body class="h-full">
         ```
       */}
-      <div className="flex min-h-full">
+      <div className="flex bg-[#F8F9F7] min-h-full">
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
