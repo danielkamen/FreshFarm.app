@@ -77,7 +77,7 @@ export default function ProductList() {
                       <div>
                         <p className="text-sm text-gray-900">
                           Harvested on {" "}
-                          <time dateTime={product.picked_on.toDate().toString()}>
+                          <time dateTime={product.picked_on.toDate().toUTCString()}>
                           </time>
                         </p>
                         <p className="mt-2 flex items-center text-sm text-gray-500">

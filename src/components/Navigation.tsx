@@ -24,6 +24,13 @@ import { auth } from "../firebase";
 import { useUserContext } from "../contexts/useUserContext";
 import logo from "./farmfreshnavlogo.gif";
 
+
+
+import { Listbox } from '@headlessui/react'
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+
+
+
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -150,11 +157,11 @@ export default function Navigation() {
                           leaveTo="opacity-0 -translate-y-1">
                           <Popover.Panel className="absolute inset-x-0 top-full z-10 hidden transform shadow-lg md:block">
                             <div className="absolute inset-0 flex">
-                              <div className="w-full bg-white" />
+                              <div className="w-full bg-grey-100" />
                             </div>
                             <div className="relative mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
                               <div className="grid gap-y-10 bg-white px-4 h-16 py-8 sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12">
-                                {/** Search Categories Modal */}
+                               
                               </div>
                             </div>
                           </Popover.Panel>
@@ -200,22 +207,13 @@ export default function Navigation() {
                   </Link>
                   <Menu as="div" className="relative inline-block text-left">
                     <div>
-                      <Menu.Button className="items-center inline-flex w-full justify-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-accent focus:outline-none focus:ring-0 focus:ring-transparent">
+                      <Menu.Button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" className="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary"
+                      type="button">
                         Account
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 font-semibold ml-1 -mr-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor">
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </Menu.Button>
+                        <svg className="w-4 h-4 ml-2"aria-hidden="true"fill="none"stroke="currentColor"viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round"stroke-linejoin="round"stroke-width="2"d="M19 9l-7 7-7-7"></path></svg></Menu.Button>
+
                     </div>
                     <Transition
                       as={Fragment}
