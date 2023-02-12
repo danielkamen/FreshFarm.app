@@ -8,7 +8,8 @@ import Navigation from "../components/Navigation";
 
 
 export default function MeetFarmersPage() {
-
+ 
+  
   const [farmers, setFarmers] = useState<Array<Farmer>>([]);
   useEffect(() => {
     const fetchFarmers = async () => {

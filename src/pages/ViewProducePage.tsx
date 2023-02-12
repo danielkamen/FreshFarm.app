@@ -4,7 +4,7 @@ import SingleProduct from "../components/SingleProduct";
 export default function ViewProducePage() {
   return (
     <div>
-      <SingleProduct />
+      {/* {<SingleProduct />} */}
       <ProductList />
     </div>
   );
