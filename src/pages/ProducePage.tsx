@@ -48,7 +48,7 @@ export default function ProducePage() {
                   {category.name}
                 </h3>
               </div>
-              <h3 className="mt-4 text-lg text-gray-700">{category.name}</h3>
+              
             </Link>
           ))}
         </div>
