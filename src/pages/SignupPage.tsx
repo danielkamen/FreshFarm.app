@@ -5,6 +5,8 @@ import { collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { PRODUCTPAGE } from '../constants/routes'
 import logo from "./farmfreshnavlogo.gif";
+import HomePage from "./HomePage";
+import {HOME} from "../constants/routes"
 
 export default function Example() {
   const [error, setError] = useState({email: '', password: ''});
