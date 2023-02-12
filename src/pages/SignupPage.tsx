@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore"; 
 import { auth, db } from "../firebase";
-import { PRODUCTPAGE } from '../constants/routes'
-import logo from "./farmfreshnavlogo.gif";
+import { HOME } from '../constants/routes'
+import logo from "../components/farmfreshnavlogo.gif";
 
 export default function Example() {
   const [error, setError] = useState({email: '', password: ''});
