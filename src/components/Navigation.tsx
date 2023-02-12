@@ -327,12 +327,18 @@ export default function Navigation() {
                     <Link
                       to={LOGIN}
                       className="text-primary hover:text-primary-accent">
-                      Log In
+                      Login
                     </Link>
                   </p>
                 </>
               ) : (
-                <></>
+                <>
+                <Link
+                    to={PROFILE}
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-accent">
+                    Manage Profile
+                  </Link>
+                </>
               )}
             </div>
           </div>

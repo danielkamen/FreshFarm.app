@@ -3,9 +3,15 @@ import { HeartIcon } from "@heroicons/react/24/outline";
 import { Category, Farmer, Produce } from "../types";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { HOME } from "../constants/routes";
+import { CARTPAGE, HOME } from "../constants/routes";
 import { doc, getDoc } from "@firebase/firestore";
 import { db } from "../firebase";
+
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 2,
+});
 
 export default function SingleProduce({ produceId }: { produceId: string }) {
   const navigate = useNavigate();
@@ -67,79 +73,78 @@ export default function SingleProduce({ produceId }: { produceId: string }) {
   } else {
     return (
       <div className="bg-white">
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-            {/* Image gallery */}
-            <Tab.Group as="div" className="flex flex-col-reverse">
-              {/* Image selector */}
-              <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
-                <Tab.List className="grid grid-cols-4 gap-6">
-                  <Tab
-                    key={produce.category.id}
-                    className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4">
-                    {({ selected }) => (
-                      <>
-                        <span className="sr-only">
-                          {" "}
-                          {produce.category.name}{" "}
-                        </span>
-                        <span className="absolute inset-0 overflow-hidden rounded-md">
-                          <img
-                            src={produce.category.image_url}
-                            alt={produce.category.name}
-                            className="h-full w-full object-cover object-center"
-                          />
-                        </span>
-                      </>
-                    )}
-                  </Tab>
-                </Tab.List>
-              </div>
+        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+          {/* Image gallery */}
+          <Tab.Group as="div" className="flex flex-col-reverse">
+            {/* Image selector */}
+            <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
+              <Tab.List className="grid grid-cols-4 gap-6">
+                <Tab
+                  key={produce.category.id}
+                  className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4">
+                  {({ selected }) => (
+                    <>
+                      <span className="sr-only"> {produce.category.name} </span>
+                      <span className="absolute inset-0 overflow-hidden rounded-md">
+                        <img
+                          src={produce.category.image_url}
+                          alt={produce.category.name}
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </span>
+                    </>
+                  )}
+                </Tab>
+              </Tab.List>
+            </div>
 
-              <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
-                <Tab.Panel key={produce.category.id}>
-                  <img
-                    src={produce.category.image_url}
-                    alt={produce.category.name}
-                    className="h-full w-full object-cover object-center sm:rounded-lg"
-                  />
-                </Tab.Panel>
-              </Tab.Panels>
-            </Tab.Group>
-
-            {/* Produce info */}
-            <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-                {produce.name}
-              </h1>
-
-              <div className="mt-3">
-                <h2 className="sr-only">Produce information</h2>
-                <p className="text-3xl tracking-tight text-gray-900">
-                  {produce.price}
-                </p>
-              </div>
-
-              <div className="mt-6">
-                <h3 className="sr-only">Description</h3>
-
-                <div
-                  className="space-y-6 text-base text-gray-700"
-                  dangerouslySetInnerHTML={{
-                    __html: produce.seller.description,
-                  }}
+            <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
+              <Tab.Panel key={produce.category.id}>
+                <img
+                  src={produce.category.image_url}
+                  alt={produce.category.name}
+                  className="h-full w-full object-cover object-center sm:rounded-lg"
                 />
-              </div>
+              </Tab.Panel>
+            </Tab.Panels>
+          </Tab.Group>
 
-              <form className="mt-6">
-                <div className="sm:flex-col1 mt-10 flex">
-                  <button
-                    type="submit"
-                    className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-primary py-3 px-8 text-base font-medium text-white hover:bg-primary-accent sm:w-full">
-                    Add to bag
-                  </button>
+          {/* Produce info */}
+          <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+              {produce.name}
+            </h1>
 
-                  <button
+            <div className="mt-3">
+              <h2 className="sr-only">Produce information</h2>
+              <p className="text-3xl tracking-tight text-gray-900">
+                {formatter.format(produce.price)}
+              </p>
+            </div>
+
+            <div className="mt-6">
+              <h3 className="sr-only">Description</h3>
+
+              <div
+                className="space-y-6 text-base text-gray-700"
+                dangerouslySetInnerHTML={{
+                  __html: produce.seller.description,
+                }}
+              />
+            </div>
+
+            <form className="mt-6">
+              <div className="sm:flex-col1 mt-10 flex">
+                <button
+                  type="submit"
+                  onClick={() => {
+                    navigate(CARTPAGE);
+                  }}
+                  className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-primary py-3 px-8 text-base font-medium text-white hover:bg-primary-accent sm:w-full">
+                  Add to bag
+                </button>
+
+                {/* <button
                     type="button"
                     className="ml-4 flex items-center justify-center rounded-md py-3 px-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500">
                     <HeartIcon
@@ -147,10 +152,9 @@ export default function SingleProduce({ produceId }: { produceId: string }) {
                       aria-hidden="true"
                     />
                     <span className="sr-only">Add to favorites</span>
-                  </button>
-                </div>
-              </form>
-            </div>
+                  </button> */}
+              </div>
+            </form>
           </div>
         </div>
       </div>
