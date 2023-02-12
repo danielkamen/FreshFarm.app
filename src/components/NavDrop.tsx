@@ -18,8 +18,8 @@ export default function NavDropDown() {
       onChange={(value) => (value ? setSelected(value) : setSelected(null))}>
       {({ open }) => (
         <>
-          <div className="relative mt-1">
-            <Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+          <div className="relative">
+            <Listbox.Button className="relative w-full cursor-default rounded-md  bg-grey-100 py-2 pl-3 pr-10 text-left focus:bg-grey-200  sm:text-sm">
               <span className="flex items-center">
                 {selected !== null ? (
                   <img
@@ -46,12 +46,14 @@ export default function NavDropDown() {
             </Listbox.Button>
 
             <Transition
-              show={open}
-              as={Fragment}
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0">
-              <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                          as={Fragment}
+                          enter="transition ease-out duration-300"
+                          enterFrom="opacity-0 -translate-y-1"
+                          enterTo="opacity-100 translate-y-0"
+                          leave="transition ease-in duration-250"
+                          leaveFrom="opacity-100 translate-y-0"
+                          leaveTo="opacity-0 -translate-y-1">
+              <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-hidden rounded-md bg-white py-1 text-base shadow-lg sm:text-sm">
                 {categories.map((Category) => (
                   <Listbox.Option
                     key={Category.id}

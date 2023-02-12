@@ -22,6 +22,7 @@ import {
 import { auth } from "../firebase";
 import { useUserContext } from "../contexts/useUserContext";
 import logo from "../images/freshfarmlogo.gif";
+import NavDropDown from "./NavDrop";
 
 const features = [
   {
@@ -69,7 +70,8 @@ export default function Navigation() {
                   <img className="min-h-6 min-w-6 w-8 h-8" src={logo} alt="" />
                 </div>
                 <div className="mx-2">
-                  <h1>FreshFarm</h1>
+                  <h1>Fresh Farm</h1>
+                
                 </div>
               </Link>
             </div>
@@ -109,59 +111,11 @@ export default function Navigation() {
                     placeholder="Search produce"
                   />
                 </form>
-                <div className="flex px-4 items-center rounded-lg bg-gray-200 text-gray-500 font-semibold">
-                  <Popover>
-                    {({ open }) => (
-                      <>
-                        <Popover.Button
-                          className={`${
-                            open ? "text-gray-900" : "text-gray-500"
-                          } group inline-flex items-center rounded-md text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-0 focus:ring-transparent`}>
-                          <div className="flex flex-row items-center justify-center h-full">
-                            <span className="truncate block">
-                              All categories
-                            </span>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-5 w-5 font-semibold ml-1 -mr-1"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor">
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M19 9l-7 7-7-7"
-                              />
-                            </svg>
-                          </div>
-                        </Popover.Button>
-
-                        <Transition
-                          as={Fragment}
-                          enter="transition ease-out duration-200"
-                          enterFrom="opacity-0 -translate-y-1"
-                          enterTo="opacity-100 translate-y-0"
-                          leave="transition ease-in duration-150"
-                          leaveFrom="opacity-100 translate-y-0"
-                          leaveTo="opacity-0 -translate-y-1">
-                          <Popover.Panel className="absolute inset-x-0 top-full z-10 hidden transform shadow-lg md:block">
-                            <div className="absolute inset-0 flex">
-                              <div className="w-full bg-grey-100" />
-                            </div>
-                            <div className="relative mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-                              <div className="grid gap-y-10 bg-white px-4 h-16 py-8 sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12">
-                               
-                              </div>
-                            </div>
-                          </Popover.Panel>
-                        </Transition>
-                      </>
-                    )}
-                  </Popover>
-                </div>
+               
+                  <NavDropDown />
+       
               </div>
-              <div className="bg-tertiary-accent ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center hover:bg-secondary">
+              <div className="bg-primary-accent ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center hover:bg-primary">
                 <span>Search</span>
               </div>
             </div>
@@ -187,7 +141,7 @@ export default function Navigation() {
                     to={CARTPAGE}
                     className="group flex items-center p-2 mx-2">
                     <ShoppingBagIcon
-                      className="h-6 w-6 flex-shrink-0 text-primary group-hover:text-primary-accent"
+                      className="h-6 w-6 flex-shrink-0 text-primary-accent group-hover:text-primary"
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-primary group-hover:text-primary-accent">
@@ -197,7 +151,7 @@ export default function Navigation() {
                   </Link>
                   <Menu as="div" className="relative inline-block text-left">
                     <div>
-                      <Menu.Button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" className="text-white bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary"
+                      <Menu.Button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" className="text-white bg-primary hover:bg-primary-accent focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-primary-accent dark:hover:bg-primary dark:focus:ring-primary"
                       type="button">
                         Account
                         <svg className="w-4 h-4 ml-2"aria-hidden="true"fill="none"stroke="currentColor"viewBox="0 0 24 24"
@@ -207,10 +161,10 @@ export default function Navigation() {
                     </div>
                     <Transition
                       as={Fragment}
-                      enter="transition ease-out duration-100"
+                      enter="transition ease-out duration-300"
                       enterFrom="transform opacity-0 scale-95"
                       enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
+                      leave="transition ease-in duration-200"
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95">
                       <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
