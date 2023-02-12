@@ -9,6 +9,7 @@ import FilterList from "../components/FilterList";
 
 export default function SearchResultPage() {
   const [searchParams] = useSearchParams();
+  const categoryId = searchParams.get("category");
 
   const [produce, setProduce] = useState<Array<Produce>>([]);
   useEffect(() => {
@@ -27,26 +28,49 @@ export default function SearchResultPage() {
             if (sellerRef.exists()) {
               const produceData = {
                 id: doc.id,
-                ...doc.data(),
-                category: categoryRef.data() as Category,
-                seller: sellerRef.data() as Farmer,
+                name: produceRef.name,
+                price: produceRef.price,
+                quantity: produceRef.quantity,
+                picked_on: produceRef.picked_on,
+                category: {
+                  id: categoryRef.id,
+                  name: categoryRef.data().name,
+                  image_url: categoryRef.data().image_url,
+                } as Category,
+                seller: {
+                  id: sellerRef.id,
+                  name: sellerRef.data().name,
+                  description: sellerRef.data().description,
+                  created_at: sellerRef.data().created_at,
+                  updated_at: sellerRef.data().updated_at,
+                  email_address: sellerRef.data().email_address,
+                  image_url: sellerRef.data().image_url,
+                  phone_number: sellerRef.data().phone_number,
+                  address: sellerRef.data().address,
+                } as Farmer,
               } as Produce;
-              setProduce((prev) => [...prev, produceData]);
+              if (categoryId) {
+                if (produceData.category.id === categoryId) {
+                  setProduce((prev) => [...prev, produceData]);
+                } else {
+                  setProduce((prev) => [...prev]);
+                }
+              } else {
+                setProduce((prev) => [...prev, produceData]);
+              }
             }
           }
         }
       });
     });
-  }, []);
+  }, [categoryId]);
 
   return (
     <div>
       <Navigation />
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto px-6 lg:px-8">
-          <FilterList
-            categoryId={searchParams.get("category")}
-            title={"Browse Produce"}>
+          <FilterList categoryId={categoryId} title={"Browse Produce"}>
             <ProduceList produce={produce} />
           </FilterList>
         </div>

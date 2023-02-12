@@ -102,11 +102,15 @@ export default function Navigation() {
                     className="w-full"
                     onSubmit={(e) => {
                       e.preventDefault();
-                      if (searchTerm) {
+                      if (searchTerm && selectedCategory) {
                         navigate(
                           `${SEARCHRESULTPAGE}?searchTerm=${searchTerm}${
-                            selectedCategory && `&category=${selectedCategory}`
+                            selectedCategory && `&category=${selectedCategory.id}`
                           }`
+                        );
+                      } else if (!searchTerm && selectedCategory) {
+                        navigate(
+                          `${SEARCHRESULTPAGE}?category=${selectedCategory.id}`
                         );
                       } else {
                         navigate(0);
@@ -124,11 +128,15 @@ export default function Navigation() {
                 </div>
                 <button
                   onClick={() => {
-                    if (searchTerm) {
+                    if (searchTerm && selectedCategory) {
                       navigate(
                         `${SEARCHRESULTPAGE}?searchTerm=${searchTerm}${
-                          selectedCategory && `&category=${selectedCategory}`
+                          selectedCategory && `&category=${selectedCategory.id}`
                         }`
+                      );
+                    } else if (!searchTerm && selectedCategory) {
+                      navigate(
+                        `${SEARCHRESULTPAGE}?category=${selectedCategory.id}`
                       );
                     } else {
                       navigate(0);

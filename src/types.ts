@@ -21,7 +21,6 @@ export type Category = {
 export type Produce = {
   id: string;
   name: string;
-  image_url: string;
   price: number;
   quantity: number;
   category: Category;

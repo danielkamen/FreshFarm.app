@@ -1,7 +1,6 @@
 import {
   ChevronRightIcon,
   CurrencyDollarIcon,
-  StarIcon,
 } from "@heroicons/react/20/solid";
 
 import { Link } from "react-router-dom";
@@ -19,16 +18,9 @@ export default function ProduceList({ produce }: { produce: Array<Produce> }) {
               className="block hover:bg-gray-50">
               <div className="flex items-center px-4 py-4 sm:px-6">
                 <div className="flex min-w-0 flex-1 items-center">
-                  <div className="flex-shrink-0">
-                    <img
-                      className="block h-12 w-12 rounded-full"
-                      src={produce.image_url}
-                      alt=""
-                    />
-                  </div>
                   <div className="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                     <div>
-                      <p className="truncate text-sm font-medium text-indigo-600">
+                      <p className="truncate text-sm font-medium text-gray-600">
                         {produce.name}
                       </p>
                       <p className="mt-2 flex items-center text-sm text-gray-500">
