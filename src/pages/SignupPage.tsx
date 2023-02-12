@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/
 import { collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import logo from "./farmfreshnavlogo.gif";
-import { HOME, LOGIN } from "../constants/routes";
+import { HOME, PROFILE, LOGIN } from "../constants/routes";
 
 export default function Example() {
   const [error, setError] = useState({ email: "", password: "" });
@@ -71,7 +71,7 @@ export default function Example() {
                         user_id: user.uid,
                         isFarmer: isFarmer,
                       });
-                      navigate(HOME);
+                      navigate(PROFILE);
                     } catch (e: any) {
                       const err = (e as Error).message;
                       if (

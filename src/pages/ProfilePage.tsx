@@ -13,28 +13,11 @@ export default function Example() {
   const [name, setName] = useState<string>('');
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [address, setAddress] = useState<string>('');
-  const [city, setCity] = useState<string>('');
-  const [state, setState] = useState<string>('');
-  const [zip, setZip] = useState<string>('');
 
   const [description, setDescription] = useState<string>('');
   const [photo, setPhoto] = useState<string>('');
 
   const { databaseUserUID, databaseUser, collectionUID, collectionUser } = useUserContext();
-
-  const { defaultAddress, defaultCity, defaultState, defaultZip } = useMemo(() => {
-    const location = collectionUser?.address?.split(', ');
-    if (!location) return '';
-    if (location.length === 3) {
-      return location[0], location[1], location[2], '';
-    } else if (location.length === 2) {
-      return location[0], location[1];
-    } else if (location.length === 1) {
-      return location[0];
-    } else {
-      return '';
-    }
-  }, [collectionUser])
   
   return (
 
@@ -50,7 +33,7 @@ export default function Example() {
           if (databaseUser?.isFarmer) {
             await setDoc(doc(db, "sellers", collectionUID), {
               name: name,
-              address: address + ', ' + city + ', ' + state + ' ' + zip,
+              address: address,
               phone_number: phoneNumber,
               updated_at: new Date(),
               image_url: photo,
@@ -59,7 +42,7 @@ export default function Example() {
           } else {
             await setDoc(doc(db, "buyers", collectionUID), {
               name: name,
-              address: address + ', ' + city + ', ' + state + ' ' + zip,
+              address: address,
               phone_number: phoneNumber,
               updated_at: new Date()
             }, { merge: true });
@@ -75,9 +58,6 @@ export default function Example() {
           setName('');
           setPhoneNumber('');
           setAddress('');
-          setCity('');
-          setState('');
-          setZip('');
           setDescription('');
           setPhoto('');
           setProfilePicture('');
@@ -224,7 +204,7 @@ export default function Example() {
 
                 <div className="col-span-6">
                   <label htmlFor="street-address" className="block text-sm font-medium text-gray-700">
-                    Street address
+                    Address
                   </label>
                   <input
                     type="text"
@@ -232,64 +212,10 @@ export default function Example() {
                     id="street-address"
                     autoComplete="street-address"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                    placeholder={defaultAddress}
+                    placeholder={collectionUser?.address}
                     value={address}
                     onChange={(e) => {
                       setAddress(e.target.value);
-                    }}
-                  />
-                </div>
-  
-                <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                  <label htmlFor="city" className="block text-sm font-medium text-gray-700">
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    name="city"
-                    id="city"
-                    autoComplete="address-level2"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                    placeholder={defaultCity}
-                    value={city}
-                    onChange={(e) => {
-                      setCity(e.target.value);
-                    }}
-                  />
-                </div>
-  
-                <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label htmlFor="region" className="block text-sm font-medium text-gray-700">
-                    State
-                  </label>
-                  <input
-                    type="text"
-                    name="region"
-                    id="region"
-                    autoComplete="address-level1"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                    placeholder={defaultState}
-                    value={state}
-                    onChange={(e) => {
-                      setState(e.target.value);
-                    }}
-                  />
-                </div>
-  
-                <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label htmlFor="postal-code" className="block text-sm font-medium text-gray-700">
-                    ZIP / Postal code
-                  </label>
-                  <input
-                    type="text"
-                    name="postal-code"
-                    id="postal-code"
-                    autoComplete="postal-code"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                    placeholder={defaultZip}
-                    value={zip}
-                    onChange={(e) => {
-                      setZip(e.target.value);
                     }}
                   />
                 </div>
