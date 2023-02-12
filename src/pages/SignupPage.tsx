@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import logo from "./farmfreshnavlogo.gif";
