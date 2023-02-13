@@ -23,7 +23,7 @@ export default function About() {
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
       <img
-        src="https://sustainability.ph/storage/articles/banners/d13ac31e5b331cfc25bcf069470ae0ec.jpg"
+        src="https://rare-gallery.com/mocahbig/74091-Field-Summer-Sky-Cloud-HouseFarm-4k-Ultra-HD-Wallpaper.jpg"
         alt=""
         className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
       />
@@ -90,11 +90,11 @@ export default function About() {
             sustainable and equitable food system for everyone.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8 pb-10">
+        <div className="hidden mx-auto mt-16 sm:grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8 pb-10">
           {cards.map((card) => (
             <div
               key={card.name}
-              className="flex gap-x-4 rounded-2xl bg-black/5 p-6 ring-1 ring-inset ring-white/10"
+              className="invisible sm:visible flex gap-x-4 rounded-2xl bg-black/5 p-6 ring-1 ring-inset ring-white/10"
             >
               <card.icon
                 className="h-7 w-5 flex-grid text-primary-accent"

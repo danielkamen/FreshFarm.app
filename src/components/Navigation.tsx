@@ -71,7 +71,7 @@ export default function Navigation() {
                   <img className="min-h-6 min-w-6 w-8 h-8" src={logo} alt="" />
                 </div>
                 <div className="mx-2">
-                  <h1 className="block truncate">Fresh Farm</h1>
+                  <h1 className="animate-text inline font-extrabold bg-clip-text bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 text-transparent font-black">Fresh Farm</h1>
                 </div>
               </Link>
             </div>
