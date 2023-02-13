@@ -52,7 +52,7 @@ export default function Navigation() {
   let navigate = useNavigate();
 
   return (
-    <Popover className="sticky bg-white z-10">
+    <Popover className="sticky bg-white z-10 ">
       <div
         className="pointer-events-none absolute inset-0 z-20 shadow"
         aria-hidden="true"
@@ -142,7 +142,7 @@ export default function Navigation() {
                       navigate(0);
                     }
                   }}
-                  className="bg-primary ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center hover:bg-primary-accent">
+                  className="animate-background bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 font-black ml-4 py-2 px-4 text-white font-semibold rounded-lg transition duration-3000 cursor-pointer flex items-center">
                   <span>Search</span>
                 </button>
               </div>
@@ -154,12 +154,12 @@ export default function Navigation() {
                 <>
                   <Link
                     to={LOGIN}
-                    className="truncate block text-base font-medium text-primary hover:text-primary-accent">
+                    className="truncate block text-base font-medium text-primary hover:text-primary-accent hover:shadow-xl">
                     Log In
                   </Link>
                   <Link
                     to={SIGNUP}
-                    className="truncate block ml-8 items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm  hover:bg-primary-accent">
+                    className="truncate block ml-8 items-center justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white animate-background bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 font-black ml-4 py-2 px-4 text-white font-semibold  hover:shadow-lg">
                     Sign up
                   </Link>
                 </>
@@ -182,7 +182,8 @@ export default function Navigation() {
                       <Menu.Button
                         id="dropdownInformationButton"
                         data-dropdown-toggle="dropdownInformation"
-                        className="text-white bg-primary hover:bg-primary-accent font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
+                          className="text-white bg-primary hover:bg-primary-accent font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center
+                        animate-background bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 font-black ml-4 py-2 px-4 text-white font-semibold  hover:shadow-lg
                         "
                         type="button">
                         Account
@@ -209,7 +210,7 @@ export default function Navigation() {
                       leave="transition ease-in duration-200"
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95">
-                      <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                      <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 animate-background bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 font-black ml-4 py-2 px-4 text-white font-semibold  hover:shadow-lg">
                         <div className="py-1">
                           <Menu.Item>
                             <div className="block px-4 py-2 text-sm">
@@ -220,7 +221,7 @@ export default function Navigation() {
                             {({ active }) => (
                               <a
                                 href={PROFILE}
-                                className={`
+                                className={` rounded-full text-center
                                   ${
                                     active
                                       ? "bg-gray-100 text-gray-900"
@@ -240,7 +241,7 @@ export default function Navigation() {
                               {({ active }) => (
                                 <button
                                   type="submit"
-                                  className={`
+                                  className={` rounded-full text-center
                                     ${
                                       active
                                         ? "bg-gray-100 text-gray-900"
@@ -296,13 +297,13 @@ export default function Navigation() {
               </div>
               <div className="mt-6 sm:mt-8">
                 <nav>
-                  <div className="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
+                  <div className="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4 ">
                     {features.map((item) => (
                       <Link
                         key={item.name}
                         to={item.to}
-                        className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50">
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primary text-white sm:h-12 sm:w-12">
+                        className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-100 hover:shadow-lg">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primary text-white sm:h-12 sm:w-12 animate-background bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 text-white hover:shadow-lg">
                           <item.icon className="h-6 w-6" aria-hidden="true" />
                         </div>
                         <div className="ml-4 text-base font-medium text-gray-900">
@@ -319,7 +320,7 @@ export default function Navigation() {
                 <>
                   <Link
                     to={SIGNUP}
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-accent">
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm animate-background bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 text-white ">
                     Sign up
                   </Link>
                   <p className="mt-6 text-center text-base font-medium text-gray-500">
@@ -335,7 +336,7 @@ export default function Navigation() {
                 <>
                 <Link
                     to={PROFILE}
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-accent">
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm animate-background bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 text-white hover:shadow-xl">
                     Manage Profile
                   </Link>
                 </>

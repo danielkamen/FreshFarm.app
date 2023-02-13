@@ -49,27 +49,27 @@ const callouts: Array<CalloutType> = [
 ];
 
 export default function Callout() {
-  return (
-    <div className="bg-gray-100">
-      <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-4">
+  return ( 
+    <div className="animate-background bg-transparent bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 subpixel-antialiased">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-4 ">
         <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
             {callouts.map((callout) => (
               <div key={callout.name} className="group relative">
-                <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+                <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-white group-hover:brightness-125 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                   <img
                     src={callout.imageSrc}
                     alt={callout.name}
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <h3 className="mt-6 text-3xl text-black-500 leading-10 font-bold">
+                <h3 className="mt-6 text-3xl text-white leading-10 font-bold">
                   <a href={callout.to}>
                     <span className="absolute inset-0" />
                     {callout.name}
                   </a>
                 </h3>
-                <p className="text-lg pt-4 leading-6 font-medium text-gray-900">
+                <p className="text-lg pt-4 leading-6 font-medium text-white">
                   {callout.description}
                 </p>
               </div>

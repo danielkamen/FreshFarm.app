@@ -56,10 +56,10 @@ export default function MeetFarmersPage() {
                       }}
                       alt="not loaded"
                     />
-                    <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                    <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900 text-center">
                       {farmer.name}
                     </h3>
-                    <p className="text-base leading-7 text-gray-600">
+                    <p className="text-base leading-7 text-gray-600 text-center">
                       {farmer.address}
                     </p>
                   </li>

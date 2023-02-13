@@ -12,11 +12,11 @@ export default function NavDropDown() {
     <Listbox value={selectedCategory} onChange={setSelectedCategory}>
       {({ open }) => (
         <>
-          <div className="relative w-72">
+          <div className="relative w-72 ">
             <Listbox.Button
               className={`relative w-full h-full cursor-pointer ${
                 open ? "bg-gray-200" : "bg-gray-100"
-              } hover:bg-gray-200 rounded-md py-2 pl-3 pr-10 text-left sm:text-sm`}>
+              } hover:bg-gray-200 rounded-md py-2 pl-3 pr-10 text-left sm:text-sm ` }>
               <span className="flex items-center">
                 {selectedCategory !== null ? (
                   <img
@@ -30,7 +30,7 @@ export default function NavDropDown() {
                     className="h-6 w-6 flex-shrink-0 rounded-full"
                   />
                 )}
-                <span className="ml-3 block truncate">
+                <span className="ml-3 block truncate ">
                   {selectedCategory !== null
                     ? selectedCategory.name
                     : "All Categories"}
