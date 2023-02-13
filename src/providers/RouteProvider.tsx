@@ -6,7 +6,6 @@ import CartPage from "../pages/CartPage";
 import LeaveReviewPage from "../pages/LeaveReviewPage";
 import EditProducePage from "../pages/EditProducePage";
 import MeetFarmersPage from "../pages/MeetFarmersPage";
-import ViewFarmerPage from "../pages/ViewFarmerPage";
 import LoginPage from "../pages/LoginPage";
 import ProfilePage from "../pages/ProfilePage";
 import {
@@ -20,7 +19,6 @@ import {
   EDITPRODUCEPAGE,
   MEETFARMERSPAGE,
   PROFILE,
-  VIEWFARMERPAGE,
   SEARCHRESULTPAGE,
 } from "../constants/routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -47,7 +45,7 @@ export const RouteProvider = () => {
             <Route path={CARTPAGE} element={<CartPage />} />
             <Route path={LEAVEREVIEWPAGE} element={<LeaveReviewPage />} />
             <Route path={MEETFARMERSPAGE} element={<MeetFarmersPage />} />
-            <Route path={VIEWFARMERPAGE} element={<ViewFarmerPage />} />
+            {/* <Route path={VIEWFARMERPAGE} element={<ViewFarmerPage />} /> */}
             <Route path={PROFILE} element={<ProfilePage />} />
             <Route path={SEARCHRESULTPAGE} element={<SearchResultPage />} />
           </Routes>

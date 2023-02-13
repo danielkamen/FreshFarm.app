@@ -78,9 +78,9 @@ export default function About() {
         </defs>
       </svg>
 
-      <div className="bg-white rounded-2xl mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="bg-white rounded-2xl mx-auto max-w-7xl px-6 lg:px-8 pt-12">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h1 className="animate-text font-extrabold text-7xl  bg-clip-text bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 text-transparent font-black subpixel-antialiased">FreshFarm</h1>
+          <h1 className="animate-text mb-8 font-extrabold text-6xl sm:text-8xl bg-clip-text bg-gradient-to-r from-lime-500 via-primary-accent to-green-600 text-transparent subpixel-antialiased">FreshFarm</h1>
 
           <p className="flex gap-x-4 rounded-2xl bg-black/5 p-6 ring-1 ring-inset ring-white/10 ">
             FreshFarm connects local farmers with buyers in the area, providing

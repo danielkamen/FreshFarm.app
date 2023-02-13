@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import { db } from "../firebase";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "@firebase/firestore";
@@ -47,7 +45,7 @@ export default function MeetFarmersPage() {
             className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {farmers.map((farmer) => (
               <div key={farmer.id}>
-                <Link to={farmer.id}>
+                <div>
                   <li key={farmer.name}>
                     <img
                       className="aspect-[3/2] w-full rounded-2xl object-cover"
@@ -65,7 +63,7 @@ export default function MeetFarmersPage() {
                       {farmer.address}
                     </p>
                   </li>
-                </Link>
+                </div>
               </div>
             ))}
           </ul>

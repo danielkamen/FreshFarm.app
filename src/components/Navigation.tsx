@@ -60,7 +60,7 @@ export default function Navigation() {
       <div className="bg-[#F8F9F7] relative z-20">
         <div className="mx-auto flex max-w-full items-center justify-between py-5 px-4 xl:px-8 md:justify-start md:space-x-10">
           {/** Logo and Company Name */}
-          <div className="flex flex-1 mr-4">
+          <div className="flex flex-auto md:flex-1 mr-4">
             <div className="flex flex-row">
               <Link
                 to={HOME}
@@ -102,11 +102,15 @@ export default function Navigation() {
                     className="w-full"
                     onSubmit={(e) => {
                       e.preventDefault();
-                      if (searchTerm) {
+                      if (searchTerm && selectedCategory) {
                         navigate(
                           `${SEARCHRESULTPAGE}?searchTerm=${searchTerm}${
-                            selectedCategory && `&category=${selectedCategory}`
+                            selectedCategory && `&category=${selectedCategory.id}`
                           }`
+                        );
+                      } else if (!searchTerm && selectedCategory) {
+                        navigate(
+                          `${SEARCHRESULTPAGE}?category=${selectedCategory.id}`
                         );
                       } else {
                         navigate(0);
@@ -124,11 +128,15 @@ export default function Navigation() {
                 </div>
                 <button
                   onClick={() => {
-                    if (searchTerm) {
+                    if (searchTerm && selectedCategory) {
                       navigate(
                         `${SEARCHRESULTPAGE}?searchTerm=${searchTerm}${
-                          selectedCategory && `&category=${selectedCategory}`
+                          selectedCategory && `&category=${selectedCategory.id}`
                         }`
+                      );
+                    } else if (!searchTerm && selectedCategory) {
+                      navigate(
+                        `${SEARCHRESULTPAGE}?category=${selectedCategory.id}`
                       );
                     } else {
                       navigate(0);
@@ -319,12 +327,18 @@ export default function Navigation() {
                     <Link
                       to={LOGIN}
                       className="text-primary hover:text-primary-accent">
-                      Log In
+                      Login
                     </Link>
                   </p>
                 </>
               ) : (
-                <></>
+                <>
+                <Link
+                    to={PROFILE}
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-accent">
+                    Manage Profile
+                  </Link>
+                </>
               )}
             </div>
           </div>
