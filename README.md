@@ -1,3 +1,5 @@
+##This project was done in collaberation with Katherine Dizon, Kelly Lau, Julia Lee, and Allen Lin; couldnt of done this without them!
+
 ## Getting started
 
 ## Requirements
